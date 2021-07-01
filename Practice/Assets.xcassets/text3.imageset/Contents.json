@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "Simply travel to a zone on the map or check in at an event and you’ll receive your coins. The longer you stay the more you earn! Remember_ you’ll need to stay inside a zone for at least one hour to receive any Coins.@1x.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "Simply travel to a zone on the map or check in at an event and you’ll receive your coins. The longer you stay the more you earn! Remember_ you’ll need to stay inside a zone for at least one hour to receive any Coins.@2x.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "Simply travel to a zone on the map or check in at an event and you’ll receive your coins. The longer you stay the more you earn! Remember_ you’ll need to stay inside a zone for at least one hour to receive any Coins.@3x.png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

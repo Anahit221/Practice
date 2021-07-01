@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "We’ve created zones to help you find places to go to and earn Coins. Tap on one to discover more information and see what events are on.-2@1x.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "We’ve created zones to help you find places to go to and earn Coins. Tap on one to discover more information and see what events are on.-2@2x.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "We’ve created zones to help you find places to go to and earn Coins. Tap on one to discover more information and see what events are on.-2@3x.png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

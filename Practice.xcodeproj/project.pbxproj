@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		55608C40268C45F300CB8202 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 55608C3F268C45F300CB8202 /* .gitignore */; };
+		5577261B268DB059007F2E03 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5577261A268DB059007F2E03 /* PageViewController.swift */; };
+		55772621268DE6C3007F2E03 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55772620268DE6C3007F2E03 /* MapViewController.swift */; };
+		55772625268DE6DC007F2E03 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55772624268DE6DC007F2E03 /* WelcomeViewController.swift */; };
+		55772628268DE6FC007F2E03 /* NavigatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55772627268DE6FC007F2E03 /* NavigatorViewController.swift */; };
+		5577262C268DE716007F2E03 /* CoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5577262B268DE716007F2E03 /* CoinViewController.swift */; };
 		55B905AA268B55F000329D66 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B905A9268B55F000329D66 /* AppDelegate.swift */; };
 		55B905AC268B55F000329D66 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B905AB268B55F000329D66 /* SceneDelegate.swift */; };
 		55B905AE268B55F000329D66 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B905AD268B55F000329D66 /* ViewController.swift */; };
@@ -18,6 +23,11 @@
 
 /* Begin PBXFileReference section */
 		55608C3F268C45F300CB8202 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		5577261A268DB059007F2E03 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		55772620268DE6C3007F2E03 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		55772624268DE6DC007F2E03 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		55772627268DE6FC007F2E03 /* NavigatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatorViewController.swift; sourceTree = "<group>"; };
+		5577262B268DE716007F2E03 /* CoinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinViewController.swift; sourceTree = "<group>"; };
 		55B905A6268B55F000329D66 /* Practice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Practice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55B905A9268B55F000329D66 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		55B905AB268B55F000329D66 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -68,9 +78,14 @@
 			children = (
 				55608C3E268C458E00CB8202 /* Git */,
 				55B905A9268B55F000329D66 /* AppDelegate.swift */,
+				5577261A268DB059007F2E03 /* PageViewController.swift */,
 				55B905AB268B55F000329D66 /* SceneDelegate.swift */,
 				55B905AD268B55F000329D66 /* ViewController.swift */,
 				55B905AF268B55F000329D66 /* Main.storyboard */,
+				55772624268DE6DC007F2E03 /* WelcomeViewController.swift */,
+				55772620268DE6C3007F2E03 /* MapViewController.swift */,
+				55772627268DE6FC007F2E03 /* NavigatorViewController.swift */,
+				5577262B268DE716007F2E03 /* CoinViewController.swift */,
 				55B905B2268B55F100329D66 /* Assets.xcassets */,
 				55B905B4268B55F100329D66 /* LaunchScreen.storyboard */,
 				55B905B7268B55F100329D66 /* Info.plist */,
@@ -150,8 +165,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				55B905AE268B55F000329D66 /* ViewController.swift in Sources */,
+				55772621268DE6C3007F2E03 /* MapViewController.swift in Sources */,
+				55772628268DE6FC007F2E03 /* NavigatorViewController.swift in Sources */,
+				5577262C268DE716007F2E03 /* CoinViewController.swift in Sources */,
 				55B905AA268B55F000329D66 /* AppDelegate.swift in Sources */,
+				55772625268DE6DC007F2E03 /* WelcomeViewController.swift in Sources */,
 				55B905AC268B55F000329D66 /* SceneDelegate.swift in Sources */,
+				5577261B268DB059007F2E03 /* PageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

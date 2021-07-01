@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "Your Coins are securely stashed in your Vault. Use them in the Shop for exciting products, experiences and more!@1x.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "Your Coins are securely stashed in your Vault. Use them in the Shop for exciting products, experiences and more!@2x.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "Your Coins are securely stashed in your Vault. Use them in the Shop for exciting products, experiences and more!@3x.png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

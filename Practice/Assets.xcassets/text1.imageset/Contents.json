@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "TripCoin rewards you for travelling around Australia whether you’re going up the coast or just down the road@1x.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "TripCoin rewards you for travelling around Australia whether you’re going up the coast or just down the road@2x.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "TripCoin rewards you for travelling around Australia whether you’re going up the coast or just down the road@3x.png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
