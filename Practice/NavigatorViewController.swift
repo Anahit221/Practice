@@ -18,10 +18,6 @@ class NavigatorViewController: UIViewController {
 
     }
     
-    @IBAction func skipNavigator(_ sender: Any) {
-    }
-    
-    @IBAction func pageControlNavigator(_ sender: Any) {
-    }
+   
     
 }

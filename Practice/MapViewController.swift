@@ -16,12 +16,7 @@ class MapViewController: UIViewController {
         super.viewDidLoad()
 
     }
-    
-    @IBAction func skipMap(_ sender: Any) {
-    }
-    
-    @IBAction func pageControlMap(_ sender: Any) {
-    }
+   
     
 
 }

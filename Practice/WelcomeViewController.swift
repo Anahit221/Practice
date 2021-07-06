@@ -20,9 +20,4 @@ class WelcomeViewController: UIViewController {
         
     }
     
-    @IBAction func skipWelcome(_ sender: Any) {
-    }
-    
-    @IBAction func pageControlWelcome(_ sender: Any) {
-    }
 }
