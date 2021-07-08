@@ -16,14 +16,10 @@ class CoinViewController: UIViewController {
         super.viewDidLoad()
 
     }
-    
-    @IBAction func skipCoin(_ sender: Any) {
-    }
-    
+
     @IBAction func doneButton(_ sender: Any) {
     }
     
-    @IBAction func pageControlCoin(_ sender: Any) {
-    }
+    
     
 }
