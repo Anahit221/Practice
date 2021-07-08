@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -20,6 +20,9 @@
 		55B905B1268B55F000329D66 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55B905AF268B55F000329D66 /* Main.storyboard */; };
 		55B905B3268B55F100329D66 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55B905B2268B55F100329D66 /* Assets.xcassets */; };
 		55B905B6268B55F100329D66 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55B905B4268B55F100329D66 /* LaunchScreen.storyboard */; };
+		55CEB3AB26971F3C00D0358F /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CEB3AA26971F3C00D0358F /* LoadingViewController.swift */; };
+		55CEB3AF2697233600D0358F /* NavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CEB3AE2697233600D0358F /* NavigationManager.swift */; };
+		55CEB3B2269726C400D0358F /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CEB3B1269726C400D0358F /* StorageManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +40,9 @@
 		55B905B2268B55F100329D66 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		55B905B5268B55F100329D66 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		55B905B7268B55F100329D66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		55CEB3AA26971F3C00D0358F /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
+		55CEB3AE2697233600D0358F /* NavigationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationManager.swift; sourceTree = "<group>"; };
+		55CEB3B1269726C400D0358F /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		A55307B93EC40672AF1D7730 /* Pods_Practice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Practice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2EC099BE69FB52EE9E1FA9D /* Pods-Practice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Practice.debug.xcconfig"; path = "Target Support Files/Pods-Practice/Pods-Practice.debug.xcconfig"; sourceTree = "<group>"; };
 		C0A6A61E9146CE9A67E7ECDB /* Pods-Practice.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Practice.release.xcconfig"; path = "Target Support Files/Pods-Practice/Pods-Practice.release.xcconfig"; sourceTree = "<group>"; };
@@ -54,6 +60,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		551FBF9D26943E2A0096FEEC /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				55772624268DE6DC007F2E03 /* WelcomeViewController.swift */,
+				554B086A268F052200C647E7 /* LogInViewController.swift */,
+				554B0865268EE23A00C647E7 /* OnboardingViewController.swift */,
+				55772620268DE6C3007F2E03 /* MapViewController.swift */,
+				55772627268DE6FC007F2E03 /* NavigatorViewController.swift */,
+				5577262B268DE716007F2E03 /* CoinViewController.swift */,
+				55CEB3AA26971F3C00D0358F /* LoadingViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		55608C3E268C458E00CB8202 /* Git */ = {
 			isa = PBXGroup;
 			children = (
@@ -83,21 +103,26 @@
 		55B905A8268B55F000329D66 /* Practice */ = {
 			isa = PBXGroup;
 			children = (
+				55CEB3AD2697230C00D0358F /* Service */,
 				55608C3E268C458E00CB8202 /* Git */,
+				551FBF9D26943E2A0096FEEC /* ViewControllers */,
 				55B905A9268B55F000329D66 /* AppDelegate.swift */,
 				55B905AB268B55F000329D66 /* SceneDelegate.swift */,
 				55B905AF268B55F000329D66 /* Main.storyboard */,
-				55772624268DE6DC007F2E03 /* WelcomeViewController.swift */,
-				554B086A268F052200C647E7 /* LogInViewController.swift */,
-				554B0865268EE23A00C647E7 /* OnboardingViewController.swift */,
-				55772620268DE6C3007F2E03 /* MapViewController.swift */,
-				55772627268DE6FC007F2E03 /* NavigatorViewController.swift */,
-				5577262B268DE716007F2E03 /* CoinViewController.swift */,
 				55B905B2268B55F100329D66 /* Assets.xcassets */,
 				55B905B4268B55F100329D66 /* LaunchScreen.storyboard */,
 				55B905B7268B55F100329D66 /* Info.plist */,
 			);
 			path = Practice;
+			sourceTree = "<group>";
+		};
+		55CEB3AD2697230C00D0358F /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				55CEB3AE2697233600D0358F /* NavigationManager.swift */,
+				55CEB3B1269726C400D0358F /* StorageManager.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		76434D1522A8F28CC658967D /* Frameworks */ = {
@@ -114,7 +139,6 @@
 				B2EC099BE69FB52EE9E1FA9D /* Pods-Practice.debug.xcconfig */,
 				C0A6A61E9146CE9A67E7ECDB /* Pods-Practice.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -235,12 +259,15 @@
 			files = (
 				55772621268DE6C3007F2E03 /* MapViewController.swift in Sources */,
 				55772628268DE6FC007F2E03 /* NavigatorViewController.swift in Sources */,
+				55CEB3B2269726C400D0358F /* StorageManager.swift in Sources */,
 				5577262C268DE716007F2E03 /* CoinViewController.swift in Sources */,
 				55B905AA268B55F000329D66 /* AppDelegate.swift in Sources */,
 				554B086B268F052200C647E7 /* LogInViewController.swift in Sources */,
+				55CEB3AB26971F3C00D0358F /* LoadingViewController.swift in Sources */,
 				55772625268DE6DC007F2E03 /* WelcomeViewController.swift in Sources */,
 				55B905AC268B55F000329D66 /* SceneDelegate.swift in Sources */,
 				554B0866268EE23A00C647E7 /* OnboardingViewController.swift in Sources */,
+				55CEB3AF2697233600D0358F /* NavigationManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
