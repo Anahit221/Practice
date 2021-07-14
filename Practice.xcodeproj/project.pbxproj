@@ -10,6 +10,9 @@
 		2F9EB5C43C70983B0F279BBD /* Pods_Practice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A55307B93EC40672AF1D7730 /* Pods_Practice.framework */; };
 		554B0866268EE23A00C647E7 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554B0865268EE23A00C647E7 /* OnboardingViewController.swift */; };
 		554B086B268F052200C647E7 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554B086A268F052200C647E7 /* LogInViewController.swift */; };
+		5557131D269F196A005D0092 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5557131C269F196A005D0092 /* OpenSans-Regular.ttf */; };
+		55571324269F1B06005D0092 /* Futura Bold font.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 55571323269F1B06005D0092 /* Futura Bold font.ttf */; };
+		55571329269F43A5005D0092 /* UIColor + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55571328269F43A5005D0092 /* UIColor + Ext.swift */; };
 		55608C40268C45F300CB8202 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 55608C3F268C45F300CB8202 /* .gitignore */; };
 		55745CBE269C095900D02705 /* UIStoryboard+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55745CBD269C095900D02705 /* UIStoryboard+Ext.swift */; };
 		55772621268DE6C3007F2E03 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55772620268DE6C3007F2E03 /* MapViewController.swift */; };
@@ -27,6 +30,9 @@
 /* Begin PBXFileReference section */
 		554B0865268EE23A00C647E7 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		554B086A268F052200C647E7 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		5557131C269F196A005D0092 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
+		55571323269F1B06005D0092 /* Futura Bold font.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Futura Bold font.ttf"; sourceTree = "<group>"; };
+		55571328269F43A5005D0092 /* UIColor + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Ext.swift"; sourceTree = "<group>"; };
 		55608C3F268C45F300CB8202 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		55745CBD269C095900D02705 /* UIStoryboard+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Ext.swift"; sourceTree = "<group>"; };
 		55772620268DE6C3007F2E03 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -71,6 +77,15 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		55571326269F201D005D0092 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				5557131C269F196A005D0092 /* OpenSans-Regular.ttf */,
+				55571323269F1B06005D0092 /* Futura Bold font.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		55608C3E268C458E00CB8202 /* Git */ = {
 			isa = PBXGroup;
 			children = (
@@ -106,6 +121,7 @@
 				55B905A9268B55F000329D66 /* AppDelegate.swift */,
 				55B905AB268B55F000329D66 /* SceneDelegate.swift */,
 				55B905AF268B55F000329D66 /* Main.storyboard */,
+				55571326269F201D005D0092 /* Fonts */,
 				55B905B2268B55F100329D66 /* Assets.xcassets */,
 				55B905B4268B55F100329D66 /* LaunchScreen.storyboard */,
 				55B905B7268B55F100329D66 /* Info.plist */,
@@ -118,6 +134,7 @@
 			children = (
 				55CEB3B1269726C400D0358F /* DefaultsHelper.swift */,
 				55745CBD269C095900D02705 /* UIStoryboard+Ext.swift */,
+				55571328269F43A5005D0092 /* UIColor + Ext.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -198,6 +215,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5557131D269F196A005D0092 /* OpenSans-Regular.ttf in Resources */,
+				55571324269F1B06005D0092 /* Futura Bold font.ttf in Resources */,
 				55608C40268C45F300CB8202 /* .gitignore in Resources */,
 				55B905B6268B55F100329D66 /* LaunchScreen.storyboard in Resources */,
 				55B905B3268B55F100329D66 /* Assets.xcassets in Resources */,
@@ -263,6 +282,7 @@
 				554B086B268F052200C647E7 /* LogInViewController.swift in Sources */,
 				55772625268DE6DC007F2E03 /* WelcomeViewController.swift in Sources */,
 				55B905AC268B55F000329D66 /* SceneDelegate.swift in Sources */,
+				55571329269F43A5005D0092 /* UIColor + Ext.swift in Sources */,
 				554B0866268EE23A00C647E7 /* OnboardingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

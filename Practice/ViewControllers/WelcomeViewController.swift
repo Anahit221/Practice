@@ -9,13 +9,17 @@ import UIKit
 
 class WelcomeViewController: UIViewController {
 
+    @IBOutlet weak var welcomeLabel: UILabel!
     @IBOutlet weak var welcomeImage: UIImageView!
     
-    @IBOutlet weak var welcome: UIImageView!
+  
     
-    @IBOutlet weak var welcomeText: UIImageView!
+  
     override func viewDidLoad() {
         super.viewDidLoad()
+        welcomeLabel.lineBreakMode = .byTruncatingTail
+       
+        
 
         
     }
