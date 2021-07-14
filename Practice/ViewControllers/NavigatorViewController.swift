@@ -17,7 +17,4 @@ class NavigatorViewController: UIViewController {
         super.viewDidLoad()
 
     }
-    
-   
-    
 }

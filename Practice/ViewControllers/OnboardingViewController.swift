@@ -8,42 +8,36 @@
 import UIKit
 
 class OnboardingViewController: UIViewController {
+    var currentIndex = 0
     
-    @IBOutlet weak var skipButton: UIButton!
-    @IBOutlet  var pageControl: UIPageControl!
+    // MARK: - Outlets
+    
+    
+    @IBOutlet private weak var skipButton: UIButton!
+    @IBOutlet private weak var pageControl: UIPageControl!
     var pageViewController: UIPageViewController!
     
-    private func getViewControllerWith(identifiers: String...) -> [UIViewController] {
-        
-        identifiers.compactMap { identifier in storyboard?.instantiateViewController(identifier: identifier)
-            
-        }
-    }
     
-    
+ 
   lazy  var pages = getViewControllerWith(identifiers:"WelcomeViewController",
                                                       "MapViewController",
                                                       "NavigatorViewController",
                                                       "CoinViewController")
-        
+    
+  
+  private let defaultsHelper = DefaultsHelper()
+    
+   
 
+    // MARK: - View LifeCycle
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         pageViewController.setViewControllers([pages[0]], direction: .forward, animated: false)
-        skipButton.addTarget(self, action: #selector(tapOnButton), for: .touchUpInside)
         pageViewController.dataSource = self
         pageViewController.delegate = self
         pageControl.numberOfPages = pages.count
-        pageControl.currentPage = 0
-        
-    }
-    
-    @objc func tapOnButton(){
-        let story = UIStoryboard(name: "Main", bundle: nil)
-        let skip = story.instantiateViewController(identifier: "LogInViewController") as! LogInViewController
-        let navigation = UINavigationController(rootViewController: skip)
-        self.view.addSubview(navigation.view)
-        self.present(skip, animated: true, completion: nil)
+        pageControl.currentPage = 0      
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -51,13 +45,54 @@ class OnboardingViewController: UIViewController {
             self.pageViewController = pageViewController
         }
     }
-
+    
+    // MARK: - Action
+    
+    @IBAction func pageControll(_ sender: Any) {
+        let direction: UIPageViewController.NavigationDirection =
+            pageControl.currentPage > currentIndex ? .forward : .reverse
+        guard pageControl.currentPage >= 0, pageControl.currentPage <= pages.count
+        else { return }
+        pageViewController.setViewControllers([pages[pageControl.currentPage]], direction: direction , animated: true)
+        currentIndex = pageControl.currentPage
+        hideSkipButton()
+    }
+    
+    @IBAction func skip(_ sender: Any) {
+        defaultsHelper.setOnboarding(isSeen: true)
+        let logInViewController = UIStoryboard.main.instantiateViewController(identifier: "LogInViewController")
+        navigationController?.setViewControllers([logInViewController], animated: true)
+        
+    }
+    
+    
+     // MARK: - Methods
+    
+    func hideSkipButton() {
+        if let index = pageControl?.currentPage {
+            skipButton.isHidden = index == 3
+        }
+    }
+    
+    func present() {
+         let view = self.storyboard?.instantiateViewController(identifier: "LogInViewController") as! LogInViewController
+        self.navigationController?.pushViewController(view, animated: true)
+        
+    }
+    
+    private func getViewControllerWith(identifiers: String...) -> [UIViewController] {
+        
+        identifiers.compactMap { identifier in storyboard?.instantiateViewController(identifier: identifier)
+            
+        }
+    }
 }
 
 extension OnboardingViewController: UIPageViewControllerDataSource {
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         if let index = pages.firstIndex(of: viewController), index > 0 {
             return pages[index - 1]
+            
         }
         return nil
     }
@@ -68,8 +103,6 @@ extension OnboardingViewController: UIPageViewControllerDataSource {
         }
         return nil
     }
-    
-   
 }
 
 extension OnboardingViewController: UIPageViewControllerDelegate {
@@ -77,7 +110,9 @@ extension OnboardingViewController: UIPageViewControllerDelegate {
         
         if let currentVC = pageViewController.viewControllers?.first,
            let currentIndex = pages.firstIndex(of: currentVC) {
+            self.currentIndex = currentIndex
             self.pageControl.currentPage = currentIndex
         }
+        hideSkipButton()
     }
 }
