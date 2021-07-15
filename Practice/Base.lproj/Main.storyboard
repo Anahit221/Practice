@@ -153,7 +153,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TripCoin rewards you for travelling around Australia whether you're going up the coast just down the road" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="omn-xk-d44">
-                                <rect key="frame" x="52" y="501" width="310" height="65.666666666666686"/>
+                                <rect key="frame" x="52" y="501.66666666666669" width="310" height="65.666666666666686"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -208,7 +208,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M5a-TU-sWn">
                                 <rect key="frame" x="352" y="15" width="30" height="30"/>
                                 <state key="normal" title="Skip">
-                                    <color key="titleColor" red="0.95034307240000004" green="0.74960368870000005" blue="0.1141147688" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" red="0.94901960784313721" green="0.74901960784313726" blue="0.11764705882352941" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="skip:" destination="Hkz-mc-sOy" eventType="touchUpInside" id="sTa-HC-daf"/>
@@ -385,13 +385,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Coins are securely stashed in your Vault." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="e4V-Mz-Zbs">
-                                <rect key="frame" x="42" y="401" width="330" height="43.666666666666686"/>
+                                <rect key="frame" x="42" y="392" width="330" height="43.666666666666686"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="16"/>
                                 <color key="textColor" red="0.12156862745098039" green="0.11764705882352941" blue="0.12941176470588234" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use them in the Shop for exciting products, experiences and more!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="Hly-kq-3tw">
-                                <rect key="frame" x="42" y="468.66666666666669" width="330" height="43.666666666666686"/>
+                                <rect key="frame" x="42" y="459.66666666666669" width="330" height="43.666666666666686"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="16"/>
                                 <color key="textColor" red="0.1215686275" green="0.1176470588" blue="0.12941176469999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -406,7 +406,7 @@
                             <constraint firstItem="WkA-fy-hcL" firstAttribute="width" secondItem="jbH-Ng-W9e" secondAttribute="width" multiplier="363:414" id="GHb-Za-tZf"/>
                             <constraint firstItem="WkA-fy-hcL" firstAttribute="top" secondItem="jbH-Ng-W9e" secondAttribute="top" constant="24" id="JhH-ql-TlN"/>
                             <constraint firstItem="Hly-kq-3tw" firstAttribute="leading" secondItem="e4V-Mz-Zbs" secondAttribute="leading" id="QZA-At-B5O"/>
-                            <constraint firstItem="e4V-Mz-Zbs" firstAttribute="top" secondItem="WkA-fy-hcL" secondAttribute="bottom" constant="58.990000000000002" id="XzH-9L-5jQ"/>
+                            <constraint firstItem="e4V-Mz-Zbs" firstAttribute="top" secondItem="WkA-fy-hcL" secondAttribute="bottom" constant="50" id="XzH-9L-5jQ"/>
                             <constraint firstItem="WkA-fy-hcL" firstAttribute="centerX" secondItem="BFG-N2-CeX" secondAttribute="centerX" id="aBF-jD-eTI"/>
                             <constraint firstItem="e4V-Mz-Zbs" firstAttribute="leading" secondItem="jbH-Ng-W9e" secondAttribute="leading" constant="42" id="bLJ-zb-6Y8"/>
                             <constraint firstItem="Hly-kq-3tw" firstAttribute="top" secondItem="e4V-Mz-Zbs" secondAttribute="bottom" constant="24" id="cGw-jz-LHa"/>
