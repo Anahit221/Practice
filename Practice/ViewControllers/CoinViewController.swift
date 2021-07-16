@@ -12,7 +12,6 @@ class CoinViewController: UIViewController {
 
  
     @IBOutlet weak var coinImage: UIImageView!
-    @IBOutlet weak var textCoin: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
     }

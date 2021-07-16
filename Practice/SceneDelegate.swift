@@ -19,8 +19,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let initialViewController: UIViewController
         if defaultsHelper.isOnboardingSeen {
             initialViewController = UIStoryboard.main.instantiateViewController(identifier: "LogInViewController")
-        } else {  initialViewController = UIStoryboard.main.instantiateViewController(identifier: "OnboardingViewController")
-        }
+        } else if defaultsHelper.isLoginSeen {  initialViewController = UIStoryboard.main.instantiateViewController(identifier: "MainMenuViewController")
+        } else {
+            initialViewController = UIStoryboard.main.instantiateViewController(identifier: "OnboardingViewController")}
         let navigationController = window?.rootViewController as? UINavigationController
         navigationController?.setNavigationBarHidden(true, animated: false)
         navigationController?.setViewControllers([initialViewController], animated: false)

@@ -14,10 +14,15 @@ class DefaultsHelper {
     
     enum Key: String {
         case onboardingSeen
+        case loginSeen
     }
     
     var isOnboardingSeen: Bool {
         DefaultsHelper.userDefaults.bool(forKey: Key.onboardingSeen.rawValue)
+    }
+    
+    var isLoginSeen: Bool {
+        DefaultsHelper.userDefaults.bool(forKey: Key.loginSeen.rawValue)
     }
     
     

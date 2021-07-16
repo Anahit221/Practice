@@ -14,3 +14,9 @@ extension UIColor {
         
     }
 }
+
+extension UIColor {
+    static var shadow: UIColor {
+        UIColor.init(red: 0, green: 0, blue: 0, alpha: 1)
+    }
+}

@@ -6,5 +6,6 @@ target 'Practice' do
   use_frameworks!
 
   	pod 'SDWebImage', '~> 5.0'
-
+        pod 'RxSwift', '~> 6.0'
+        pod 'RxCocoa', '~> 6.0'
 end

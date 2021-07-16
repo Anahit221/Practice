@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		2F9EB5C43C70983B0F279BBD /* Pods_Practice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A55307B93EC40672AF1D7730 /* Pods_Practice.framework */; };
+		55308E8626A15641002B9939 /* String + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55308E8526A15641002B9939 /* String + Ext.swift */; };
+		55308E8926A15C3E002B9939 /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55308E8826A15C3E002B9939 /* MainMenuViewController.swift */; };
+		5540C71126A001130092ACC7 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5540C71026A001130092ACC7 /* Montserrat-Regular.ttf */; };
 		554B0866268EE23A00C647E7 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554B0865268EE23A00C647E7 /* OnboardingViewController.swift */; };
 		554B086B268F052200C647E7 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554B086A268F052200C647E7 /* LogInViewController.swift */; };
 		5557131D269F196A005D0092 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5557131C269F196A005D0092 /* OpenSans-Regular.ttf */; };
@@ -28,6 +31,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		55308E8526A15641002B9939 /* String + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Ext.swift"; sourceTree = "<group>"; };
+		55308E8826A15C3E002B9939 /* MainMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
+		5540C71026A001130092ACC7 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		554B0865268EE23A00C647E7 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		554B086A268F052200C647E7 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		5557131C269F196A005D0092 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
@@ -73,6 +79,7 @@
 				55772620268DE6C3007F2E03 /* MapViewController.swift */,
 				55772627268DE6FC007F2E03 /* NavigatorViewController.swift */,
 				5577262B268DE716007F2E03 /* CoinViewController.swift */,
+				55308E8826A15C3E002B9939 /* MainMenuViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -80,6 +87,7 @@
 		55571326269F201D005D0092 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				5540C71026A001130092ACC7 /* Montserrat-Regular.ttf */,
 				5557131C269F196A005D0092 /* OpenSans-Regular.ttf */,
 				55571323269F1B06005D0092 /* Futura Bold font.ttf */,
 			);
@@ -135,6 +143,7 @@
 				55CEB3B1269726C400D0358F /* DefaultsHelper.swift */,
 				55745CBD269C095900D02705 /* UIStoryboard+Ext.swift */,
 				55571328269F43A5005D0092 /* UIColor + Ext.swift */,
+				55308E8526A15641002B9939 /* String + Ext.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -217,6 +226,7 @@
 			files = (
 				5557131D269F196A005D0092 /* OpenSans-Regular.ttf in Resources */,
 				55571324269F1B06005D0092 /* Futura Bold font.ttf in Resources */,
+				5540C71126A001130092ACC7 /* Montserrat-Regular.ttf in Resources */,
 				55608C40268C45F300CB8202 /* .gitignore in Resources */,
 				55B905B6268B55F100329D66 /* LaunchScreen.storyboard in Resources */,
 				55B905B3268B55F100329D66 /* Assets.xcassets in Resources */,
@@ -273,6 +283,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55308E8626A15641002B9939 /* String + Ext.swift in Sources */,
 				55772621268DE6C3007F2E03 /* MapViewController.swift in Sources */,
 				55745CBE269C095900D02705 /* UIStoryboard+Ext.swift in Sources */,
 				55772628268DE6FC007F2E03 /* NavigatorViewController.swift in Sources */,
@@ -281,6 +292,7 @@
 				55B905AA268B55F000329D66 /* AppDelegate.swift in Sources */,
 				554B086B268F052200C647E7 /* LogInViewController.swift in Sources */,
 				55772625268DE6DC007F2E03 /* WelcomeViewController.swift in Sources */,
+				55308E8926A15C3E002B9939 /* MainMenuViewController.swift in Sources */,
 				55B905AC268B55F000329D66 /* SceneDelegate.swift in Sources */,
 				55571329269F43A5005D0092 /* UIColor + Ext.swift in Sources */,
 				554B0866268EE23A00C647E7 /* OnboardingViewController.swift in Sources */,
