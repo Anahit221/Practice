@@ -74,12 +74,6 @@ class OnboardingViewController: UIViewController {
         }
     }
     
-    func present() {
-         let view = self.storyboard?.instantiateViewController(identifier: "LogInViewController") as! LogInViewController
-        self.navigationController?.pushViewController(view, animated: true)
-        
-    }
-    
     private func getViewControllerWith(identifiers: String...) -> [UIViewController] {
         
         identifiers.compactMap { identifier in storyboard?.instantiateViewController(identifier: identifier)

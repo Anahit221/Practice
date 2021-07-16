@@ -44,16 +44,14 @@ class LogInViewController: UIViewController {
     
     
     @IBAction func logInButton(_ sender: Any) {
-        guard let email = emailTextField.text, emailTextField.text?.count != 0 else { return }
-        if validateEmail(emailID: email) == false {
+        if emailTextField.text?.validateEmail() == true, passwordTextField.text != "" {
+            let logInViewController = UIStoryboard.main.instantiateViewController(identifier: "MainMenuViewController")
+            navigationController?.setViewControllers([logInViewController], animated: true)
+            
+        } else {
             errorLable.isHidden = false
-            errorLable.text = "email is not valid !"
+            errorLable.text = "email is not valid"
         }
-        guard let _ = passwordTextField.text, passwordTextField.text?.count != 0 else { return }
-      
-        let logInViewController = UIStoryboard.main.instantiateViewController(identifier: "MainMenuViewController")
-        navigationController?.setViewControllers([logInViewController], animated: true)
-        
     }
     
     @IBAction func hideButtonTapped(_ sender: Any) {
@@ -65,6 +63,8 @@ class LogInViewController: UIViewController {
         
     }
    
+    //MARK: - Methods
+   
     func validateEmail(emailID: String) -> Bool {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
 
@@ -72,15 +72,6 @@ class LogInViewController: UIViewController {
         return emailPred.evaluate(with: emailID)
         
     }
-
-//    func setupBidings() {
-//        emailTextField.rx.text.bind(to: emailSubject).disposed(by: disposeBag)
-//        passwordTextField.rx.text.bind(to: emailSubject).disposed(by: disposeBag)
-//        emailSubject
-//            .map { $0!.validateEmail() && self.passwordTextField.text != ""  }
-//            .bind(to: logIn.rx.isEnabled)
-//            .disposed(by: disposeBag)
-//    }
    
     func addHideButton() {
         passwordTextField.addSubview(hidePasswordButton)
