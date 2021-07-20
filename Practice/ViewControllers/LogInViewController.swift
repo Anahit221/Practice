@@ -49,7 +49,7 @@ class LogInViewController: UIViewController {
         defaultsHelper.setLogin(isSeen: true)
         if emailTextField.text?.validateEmail() == true, passwordTextField.text != "" {
             
-            let logInViewController = UIStoryboard.main.instantiateViewController(identifier: "MainMenuViewController")
+            let logInViewController = UIStoryboard.main.instantiateViewController(identifier: "MainScreenViewController")
             navigationController?.setViewControllers([logInViewController], animated: true)
             
         } else {

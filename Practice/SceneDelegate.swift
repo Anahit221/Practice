@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let initialViewController: UIViewController
         
         if defaultsHelper.isLoginSeen {
-            initialViewController = UIStoryboard.main.instantiateViewController(identifier: "MainMenuViewController")
+            initialViewController = UIStoryboard.main.instantiateViewController(identifier: "MainScreenViewController")
         } else if defaultsHelper.isOnboardingSeen {  initialViewController = UIStoryboard.main.instantiateViewController(identifier: "LogInViewController")
         } else {
             initialViewController = UIStoryboard.main.instantiateViewController(identifier: "OnboardingViewController")}
