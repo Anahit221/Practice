@@ -13,6 +13,8 @@ class LogInViewController: UIViewController {
     
     var emailSubject = BehaviorRelay<String?>(value: "")
     let disposeBag = DisposeBag()
+    private let defaultsHelper = DefaultsHelper()
+    
     
     // MARK: - Outlets
     @IBOutlet weak var emailTextField: UITextField!
@@ -44,7 +46,9 @@ class LogInViewController: UIViewController {
     
     
     @IBAction func logInButton(_ sender: Any) {
+        defaultsHelper.setLogin(isSeen: true)
         if emailTextField.text?.validateEmail() == true, passwordTextField.text != "" {
+            
             let logInViewController = UIStoryboard.main.instantiateViewController(identifier: "MainMenuViewController")
             navigationController?.setViewControllers([logInViewController], animated: true)
             

@@ -29,4 +29,8 @@ class DefaultsHelper {
     func setOnboarding(isSeen: Bool) {
         DefaultsHelper.userDefaults.set(isSeen, forKey: Key.onboardingSeen.rawValue)
     }
+    
+    func setLogin(isSeen: Bool) {
+        DefaultsHelper.userDefaults.set(isSeen, forKey: Key.loginSeen.rawValue)
+    }
 }
