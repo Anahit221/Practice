@@ -6,13 +6,12 @@
 //
 
 import UIKit
-import RxSwift
-import RxCocoa
+
 
 class LogInViewController: UIViewController {
     
-    var emailSubject = BehaviorRelay<String?>(value: "")
-    let disposeBag = DisposeBag()
+//    var emailSubject = BehaviorRelay<String?>(value: "")
+//    let disposeBag = DisposeBag()
     private let defaultsHelper = DefaultsHelper()
     
     
@@ -54,7 +53,7 @@ class LogInViewController: UIViewController {
             
         } else {
             errorLable.isHidden = false
-            errorLable.text = "email is not valid"
+            errorLable.text = "email is not valid!"
         }
     }
     

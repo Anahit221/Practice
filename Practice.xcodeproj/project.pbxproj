@@ -29,6 +29,10 @@
 		55B905B1268B55F000329D66 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55B905AF268B55F000329D66 /* Main.storyboard */; };
 		55B905B3268B55F100329D66 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55B905B2268B55F100329D66 /* Assets.xcassets */; };
 		55B905B6268B55F100329D66 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55B905B4268B55F100329D66 /* LaunchScreen.storyboard */; };
+		55BFC35226A8057E001AF32B /* LogInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BFC35126A8057E001AF32B /* LogInViewModel.swift */; };
+		55BFC35726A805F8001AF32B /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BFC35626A805F8001AF32B /* OnboardingViewModel.swift */; };
+		55BFC35C26A806CC001AF32B /* MainScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BFC35B26A806CC001AF32B /* MainScreenViewModel.swift */; };
+		55BFC36026A807BA001AF32B /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BFC35F26A807BA001AF32B /* MenuViewModel.swift */; };
 		55CEB3B2269726C400D0358F /* DefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CEB3B1269726C400D0358F /* DefaultsHelper.swift */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +60,10 @@
 		55B905B2268B55F100329D66 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		55B905B5268B55F100329D66 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		55B905B7268B55F100329D66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		55BFC35126A8057E001AF32B /* LogInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewModel.swift; sourceTree = "<group>"; };
+		55BFC35626A805F8001AF32B /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
+		55BFC35B26A806CC001AF32B /* MainScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewModel.swift; sourceTree = "<group>"; };
+		55BFC35F26A807BA001AF32B /* MenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
 		55CEB3B1269726C400D0358F /* DefaultsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultsHelper.swift; sourceTree = "<group>"; };
 		A55307B93EC40672AF1D7730 /* Pods_Practice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Practice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2EC099BE69FB52EE9E1FA9D /* Pods-Practice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Practice.debug.xcconfig"; path = "Target Support Files/Pods-Practice/Pods-Practice.debug.xcconfig"; sourceTree = "<group>"; };
@@ -77,15 +85,14 @@
 		551FBF9D26943E2A0096FEEC /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				55BFC35026A80555001AF32B /* LoginViewController */,
+				55BFC35526A805D1001AF32B /* OnboardingViewController */,
+				55BFC35A26A8062E001AF32B /* MainScreenViewController */,
+				55BFC35E26A8071C001AF32B /* MenuViewController */,
 				55772624268DE6DC007F2E03 /* WelcomeViewController.swift */,
-				554B086A268F052200C647E7 /* LogInViewController.swift */,
-				554B0865268EE23A00C647E7 /* OnboardingViewController.swift */,
 				55772620268DE6C3007F2E03 /* MapViewController.swift */,
 				55772627268DE6FC007F2E03 /* NavigatorViewController.swift */,
 				5577262B268DE716007F2E03 /* CoinViewController.swift */,
-				55308E8826A15C3E002B9939 /* MainScreenViewController.swift */,
-				5533C4C026A6D660005085C5 /* MenuViewController.swift */,
-				5533C4C526A6F258005085C5 /* SlideInTransition.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -132,15 +139,52 @@
 				55CEB3AD2697230C00D0358F /* Service */,
 				55608C3E268C458E00CB8202 /* Git */,
 				551FBF9D26943E2A0096FEEC /* ViewControllers */,
+				55571326269F201D005D0092 /* Fonts */,
+				5533C4C526A6F258005085C5 /* SlideInTransition.swift */,
 				55B905A9268B55F000329D66 /* AppDelegate.swift */,
 				55B905AB268B55F000329D66 /* SceneDelegate.swift */,
 				55B905AF268B55F000329D66 /* Main.storyboard */,
-				55571326269F201D005D0092 /* Fonts */,
 				55B905B2268B55F100329D66 /* Assets.xcassets */,
 				55B905B4268B55F100329D66 /* LaunchScreen.storyboard */,
 				55B905B7268B55F100329D66 /* Info.plist */,
 			);
 			path = Practice;
+			sourceTree = "<group>";
+		};
+		55BFC35026A80555001AF32B /* LoginViewController */ = {
+			isa = PBXGroup;
+			children = (
+				554B086A268F052200C647E7 /* LogInViewController.swift */,
+				55BFC35126A8057E001AF32B /* LogInViewModel.swift */,
+			);
+			path = LoginViewController;
+			sourceTree = "<group>";
+		};
+		55BFC35526A805D1001AF32B /* OnboardingViewController */ = {
+			isa = PBXGroup;
+			children = (
+				554B0865268EE23A00C647E7 /* OnboardingViewController.swift */,
+				55BFC35626A805F8001AF32B /* OnboardingViewModel.swift */,
+			);
+			path = OnboardingViewController;
+			sourceTree = "<group>";
+		};
+		55BFC35A26A8062E001AF32B /* MainScreenViewController */ = {
+			isa = PBXGroup;
+			children = (
+				55308E8826A15C3E002B9939 /* MainScreenViewController.swift */,
+				55BFC35B26A806CC001AF32B /* MainScreenViewModel.swift */,
+			);
+			path = MainScreenViewController;
+			sourceTree = "<group>";
+		};
+		55BFC35E26A8071C001AF32B /* MenuViewController */ = {
+			isa = PBXGroup;
+			children = (
+				5533C4C026A6D660005085C5 /* MenuViewController.swift */,
+				55BFC35F26A807BA001AF32B /* MenuViewModel.swift */,
+			);
+			path = MenuViewController;
 			sourceTree = "<group>";
 		};
 		55CEB3AD2697230C00D0358F /* Service */ = {
@@ -292,11 +336,15 @@
 				55308E8626A15641002B9939 /* String + Ext.swift in Sources */,
 				55772621268DE6C3007F2E03 /* MapViewController.swift in Sources */,
 				55745CBE269C095900D02705 /* UIStoryboard+Ext.swift in Sources */,
+				55BFC36026A807BA001AF32B /* MenuViewModel.swift in Sources */,
 				5533C4C126A6D660005085C5 /* MenuViewController.swift in Sources */,
+				55BFC35226A8057E001AF32B /* LogInViewModel.swift in Sources */,
+				55BFC35C26A806CC001AF32B /* MainScreenViewModel.swift in Sources */,
 				55772628268DE6FC007F2E03 /* NavigatorViewController.swift in Sources */,
 				55CEB3B2269726C400D0358F /* DefaultsHelper.swift in Sources */,
 				5577262C268DE716007F2E03 /* CoinViewController.swift in Sources */,
 				55B905AA268B55F000329D66 /* AppDelegate.swift in Sources */,
+				55BFC35726A805F8001AF32B /* OnboardingViewModel.swift in Sources */,
 				554B086B268F052200C647E7 /* LogInViewController.swift in Sources */,
 				5533C4C626A6F258005085C5 /* SlideInTransition.swift in Sources */,
 				55772625268DE6DC007F2E03 /* WelcomeViewController.swift in Sources */,
@@ -452,12 +500,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = K3BZHJ2548;
 				INFOPLIST_FILE = Practice/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.cypress.practice.Practice;
+				PRODUCT_BUNDLE_IDENTIFIER = com.anahitmargaryan.Practice;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -471,12 +520,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = K3BZHJ2548;
 				INFOPLIST_FILE = Practice/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.cypress.practice.Practice;
+				PRODUCT_BUNDLE_IDENTIFIER = com.anahitmargaryan.Practice;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
