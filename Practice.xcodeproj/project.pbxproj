@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2F9EB5C43C70983B0F279BBD /* Pods_Practice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A55307B93EC40672AF1D7730 /* Pods_Practice.framework */; };
+		5506ED1F26AAA78D00B064A4 /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5506ED1E26AAA78D00B064A4 /* UsersViewController.swift */; };
 		55308E8626A15641002B9939 /* String + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55308E8526A15641002B9939 /* String + Ext.swift */; };
 		55308E8926A15C3E002B9939 /* MainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55308E8826A15C3E002B9939 /* MainScreenViewController.swift */; };
 		5533C4C126A6D660005085C5 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5533C4C026A6D660005085C5 /* MenuViewController.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5506ED1E26AAA78D00B064A4 /* UsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
 		55308E8526A15641002B9939 /* String + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Ext.swift"; sourceTree = "<group>"; };
 		55308E8826A15C3E002B9939 /* MainScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewController.swift; sourceTree = "<group>"; };
 		5533C4C026A6D660005085C5 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
@@ -82,9 +84,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5506ED1C26AAA75800B064A4 /* UsersViewController */ = {
+			isa = PBXGroup;
+			children = (
+				5506ED1E26AAA78D00B064A4 /* UsersViewController.swift */,
+			);
+			path = UsersViewController;
+			sourceTree = "<group>";
+		};
 		551FBF9D26943E2A0096FEEC /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				5506ED1C26AAA75800B064A4 /* UsersViewController */,
 				55BFC35026A80555001AF32B /* LoginViewController */,
 				55BFC35526A805D1001AF32B /* OnboardingViewController */,
 				55BFC35A26A8062E001AF32B /* MainScreenViewController */,
@@ -350,6 +361,7 @@
 				55772625268DE6DC007F2E03 /* WelcomeViewController.swift in Sources */,
 				55308E8926A15C3E002B9939 /* MainScreenViewController.swift in Sources */,
 				55B905AC268B55F000329D66 /* SceneDelegate.swift in Sources */,
+				5506ED1F26AAA78D00B064A4 /* UsersViewController.swift in Sources */,
 				55571329269F43A5005D0092 /* UIColor + Ext.swift in Sources */,
 				554B0866268EE23A00C647E7 /* OnboardingViewController.swift in Sources */,
 			);

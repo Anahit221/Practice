@@ -10,6 +10,7 @@ import UIKit
 class SlideInTransition: NSObject, UIViewControllerAnimatedTransitioning {
     var isPresenting = false
     let dimmingView = UIView()
+    var toViewController: UIViewController!
    
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return 0.3
@@ -18,8 +19,10 @@ class SlideInTransition: NSObject, UIViewControllerAnimatedTransitioning {
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
        guard let toViewController = transitionContext.viewController(forKey: .to),
              let fromViewController = transitionContext.viewController(forKey: .from) else { return }
-        let containerView = transitionContext.containerView
         
+        self.toViewController = toViewController
+       
+        let containerView = transitionContext.containerView
         let finalWidth = toViewController.view.bounds.width * 0.8
         let finalHeight = toViewController.view.bounds.height
         
@@ -49,10 +52,19 @@ class SlideInTransition: NSObject, UIViewControllerAnimatedTransitioning {
         }) { (_) in
             transitionContext.completeTransition(!isCancelled)
         }
+        
+        let tapGatureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapDimmingView))
+        let swipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(didTapDimmingView))
+        swipeGestureRecognizer.direction = .left
+        dimmingView.addGestureRecognizer(tapGatureRecognizer)
+        toViewController.view.addGestureRecognizer(swipeGestureRecognizer)
     }
     
     
-  
+  @objc
+    private func didTapDimmingView() {
+        toViewController.dismiss(animated: true)
+    }
     
 
 }
