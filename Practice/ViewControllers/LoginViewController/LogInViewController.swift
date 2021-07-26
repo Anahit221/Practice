@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import RxCocoa
+import RxSwift
 
 class SecureTextField: UITextField {
     override func awakeFromNib() {
@@ -19,51 +21,57 @@ class SecureTextField: UITextField {
 
 class LogInViewController: UIViewController {
     
-//    var emailSubject = BehaviorRelay<String?>(value: "")
-//    let disposeBag = DisposeBag()
-    private let defaultsHelper = DefaultsHelper()
+    //    var emailSubject = BehaviorRelay<String?>(value: "")
+    //    let disposeBag = DisposeBag()
+        private let defaultsHelper = DefaultsHelper()
+        private let viewModel = LoginViewModel()
+        private let bag = DisposeBag()
+        
+        
+        // MARK: - Outlets
+        @IBOutlet weak var emailTextField: UITextField!
+        @IBOutlet weak var logInView: UIView!
+        @IBOutlet weak var logIn: UIButton!
+        @IBOutlet weak var passwordTextField: UITextField!
+        @IBOutlet weak var hidePasswordButton: UIButton!
+        @IBOutlet weak var fbButton: UIButton!
+        @IBOutlet weak var fbImage: UIImageView!
+        @IBOutlet weak var errorLable: UILabel!
+        
+        // MARK: - Lifecycel
+        
+        override func viewDidLoad() {
+            super.viewDidLoad()
+    //        setupBidings()
+            let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+                  view.addGestureRecognizer(tap)
+            loginView()
+            logIn.layer.cornerRadius = 10.0
+            addHideButton()
+            errorLable.isHidden = true
+            editTextField()
+            self.view.backgroundColor = .white
+        }
+        
+        // MARK: - Actions
     
-    
-    // MARK: - Outlets
-    @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var logInView: UIView!
-    @IBOutlet weak var logIn: UIButton!
-    @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var hidePasswordButton: UIButton!
-    @IBOutlet weak var fbButton: UIButton!
-    @IBOutlet weak var fbImage: UIImageView!
-    @IBOutlet weak var errorLable: UILabel!
-    
-    // MARK: - Lifecycel
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-//        setupBidings()
-        let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
-              view.addGestureRecognizer(tap)
+    func loginView() {
         logInView.layer.cornerRadius = 10.0
         logInView.layer.shadowColor = UIColor.gray.cgColor
         logInView.layer.shadowOpacity = 1
         logInView.layer.shadowOffset = .zero
         logInView.layer.shadowRadius = 10
-        logIn.layer.cornerRadius = 10.0
-        addHideButton()
-        errorLable.isHidden = true
-        editTextField()
-        self.view.backgroundColor = .white
     }
-    
-    // MARK: - Actions
-    
-    func editTextField() {
-        emailTextField.attributedPlaceholder = NSAttributedString(string: "E-mail",
-                                     attributes: [NSAttributedString.Key.foregroundColor: UIColor.init(red: 190/255, green: 190/255, blue: 190/255, alpha: 1)])
-        passwordTextField.attributedPlaceholder = NSAttributedString(string: "Password",
-                                     attributes: [NSAttributedString.Key.foregroundColor: UIColor.init(red: 190/255, green: 190/255, blue: 190/255, alpha: 1)])
-    }
-    
-    
-    @IBAction func logInButton(_ sender: Any) {
+        
+        func editTextField() {
+            emailTextField.attributedPlaceholder = NSAttributedString(string: "E-mail",
+                                         attributes: [NSAttributedString.Key.foregroundColor: UIColor.init(red: 190/255, green: 190/255, blue: 190/255, alpha: 1)])
+            passwordTextField.attributedPlaceholder = NSAttributedString(string: "Password",
+                                         attributes: [NSAttributedString.Key.foregroundColor: UIColor.init(red: 190/255, green: 190/255, blue: 190/255, alpha: 1)])
+        }
+        
+        
+        @IBAction func logInButton(_ sender: Any) {
         defaultsHelper.setLogin(isSeen: true)
         if emailTextField.text?.validateEmail() == true, passwordTextField.text != "" {
             

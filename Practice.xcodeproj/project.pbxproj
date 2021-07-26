@@ -35,6 +35,7 @@
 		55BFC35C26A806CC001AF32B /* MainScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BFC35B26A806CC001AF32B /* MainScreenViewModel.swift */; };
 		55BFC36026A807BA001AF32B /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BFC35F26A807BA001AF32B /* MenuViewModel.swift */; };
 		55CEB3B2269726C400D0358F /* DefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CEB3B1269726C400D0358F /* DefaultsHelper.swift */; };
+		55ED619826AECB0B00F59A00 /* Menu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55ED619726AECB0B00F59A00 /* Menu.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +68,7 @@
 		55BFC35B26A806CC001AF32B /* MainScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewModel.swift; sourceTree = "<group>"; };
 		55BFC35F26A807BA001AF32B /* MenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
 		55CEB3B1269726C400D0358F /* DefaultsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultsHelper.swift; sourceTree = "<group>"; };
+		55ED619726AECB0B00F59A00 /* Menu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Menu.storyboard; sourceTree = "<group>"; };
 		A55307B93EC40672AF1D7730 /* Pods_Practice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Practice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2EC099BE69FB52EE9E1FA9D /* Pods-Practice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Practice.debug.xcconfig"; path = "Target Support Files/Pods-Practice/Pods-Practice.debug.xcconfig"; sourceTree = "<group>"; };
 		C0A6A61E9146CE9A67E7ECDB /* Pods-Practice.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Practice.release.xcconfig"; path = "Target Support Files/Pods-Practice/Pods-Practice.release.xcconfig"; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				5533C4C026A6D660005085C5 /* MenuViewController.swift */,
+				55ED619726AECB0B00F59A00 /* Menu.storyboard */,
 				55BFC35F26A807BA001AF32B /* MenuViewModel.swift */,
 			);
 			path = MenuViewController;
@@ -288,6 +291,7 @@
 				5557131D269F196A005D0092 /* OpenSans-Regular.ttf in Resources */,
 				55571324269F1B06005D0092 /* Futura Bold font.ttf in Resources */,
 				5540C71126A001130092ACC7 /* Montserrat-Regular.ttf in Resources */,
+				55ED619826AECB0B00F59A00 /* Menu.storyboard in Resources */,
 				55608C40268C45F300CB8202 /* .gitignore in Resources */,
 				55B905B6268B55F100329D66 /* LaunchScreen.storyboard in Resources */,
 				55B905B3268B55F100329D66 /* Assets.xcassets in Resources */,

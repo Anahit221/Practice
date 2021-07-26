@@ -6,3 +6,14 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
+
+
+class OnboardingViewModel {
+    
+    private let bag = DisposeBag()
+    private let skipButtonTap = PublishRelay<Void>()
+    private let doneButtonTap = PublishRelay<Void>()
+    
+}

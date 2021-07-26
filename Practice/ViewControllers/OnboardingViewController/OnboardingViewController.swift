@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class OnboardingViewController: UIViewController {
     var currentIndex = 0
@@ -25,7 +27,9 @@ class OnboardingViewController: UIViewController {
                                                       "CoinViewController")
     
   
-  private let defaultsHelper = DefaultsHelper()
+    private let defaultsHelper = DefaultsHelper()
+    private let viewModel = OnboardingViewModel()
+    private let bag = DisposeBag()
     
    
 
