@@ -13,7 +13,6 @@ class LoginViewModel {
     
     // MARK: Input
     public let loginButtonTap = PublishRelay<Void>()
-    
     private let bag = DisposeBag()
     
 }

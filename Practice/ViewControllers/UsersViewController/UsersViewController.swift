@@ -5,34 +5,56 @@
 //  Created by Cypress on 7/23/21.
 //
 
-import Foundation
+
 import UIKit
+import Alamofire
 
 class UsersViewController: UIViewController {
-    let transition = SlideInTransition()
     
+    @IBOutlet var tableView: UITableView! {
+        didSet {
+          
+            tableView.dataSource = self
+        }
+    }
+
+    var allUsers = [User]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        getUsersAlamofire()
     }
     
-    @IBAction func menuButtonTapped(_ sender: UIBarButtonItem) {
-        guard let menuViewController = storyboard?.instantiateViewController(identifier: "MenuViewController") else { return }
-        menuViewController.modalPresentationStyle = .overCurrentContext
-        menuViewController.transitioningDelegate = self
-        present(menuViewController, animated: true)
+
+    private func getUsersAlamofire() {
+        guard
+            let url = URL.usersURL
+        else { return }
+        let decoder = JSONDecoder()
+        AF.request(url).responseDecodable(
+            of: [User].self,
+            queue: .main,
+            decoder: decoder
+        ) { [weak self] response in
+            if let users = response.value {
+                self?.allUsers += users
+                  self?.tableView.reloadData()
+                
+            }
+        }
     }
-  
 }
 
-extension UsersViewController: UIViewControllerTransitioningDelegate {
-    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        transition.isPresenting = true
-        return transition
+extension UsersViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        allUsers.count
     }
-    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        transition.isPresenting = false
-        return transition
-    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "UserCell") as! UserCell
+        cell.configure(with: allUsers[indexPath.row])
+        return cell
+    }   
 }
+
 
