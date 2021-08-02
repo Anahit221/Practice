@@ -12,7 +12,12 @@ class UserCell: UITableViewCell {
     @IBOutlet var userName: UILabel!
     @IBOutlet var email: UILabel!
     
-    func configure(with user: User) {
+    var user: User! { didSet {
+        configure()
+    }}
+    
+    
+    private func configure() {
         userName.text = user.username
         email.text = user.email
     }

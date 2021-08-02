@@ -8,20 +8,25 @@
 import Foundation
 import UIKit
 
-enum MenuType: Int {
+enum MenuItem: Int {
     case user
-    case page1
-    case page2
+    case contacts
+    case media
+}
+
+protocol MenuDelegate: AnyObject {
+   func didSelect(_ item: MenuItem)
 }
 
 class MenuViewController: UITableViewController {
     
+    weak var delegate: MenuDelegate?
+    
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let menuType = MenuType(rawValue: indexPath.row) else { return }
-        dismiss(animated: true) {
-            print("Dismissing: \(menuType)")
-        }
+        guard let item = MenuItem(rawValue: indexPath.row) else { return }
+        delegate?.didSelect(item)
+        dismiss(animated: true) 
     }
     
 }

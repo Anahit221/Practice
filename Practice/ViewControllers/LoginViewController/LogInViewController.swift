@@ -8,54 +8,119 @@
 import UIKit
 import RxCocoa
 import RxSwift
+import RxGesture
 
-class SecureTextField: UITextField {
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-        
-    }
-    
-    
-}
 
 class LogInViewController: UIViewController {
     
-    //    var emailSubject = BehaviorRelay<String?>(value: "")
-    //    let disposeBag = DisposeBag()
         private let defaultsHelper = DefaultsHelper()
         private let viewModel = LoginViewModel()
-        private let bag = DisposeBag()
+        private let disposeBag = DisposeBag()
         
         
         // MARK: - Outlets
         @IBOutlet weak var emailTextField: UITextField!
-        @IBOutlet weak var logInView: UIView!
-        @IBOutlet weak var logIn: UIButton!
         @IBOutlet weak var passwordTextField: UITextField!
-        @IBOutlet weak var hidePasswordButton: UIButton!
+        @IBOutlet weak var logInView: UIView!
+        @IBOutlet weak var logInButton: UIButton!
         @IBOutlet weak var fbButton: UIButton!
         @IBOutlet weak var fbImage: UIImageView!
-        @IBOutlet weak var errorLable: UILabel!
+        @IBOutlet weak var emailErrorLabel: UILabel!
+        @IBOutlet weak var passwordErrorLabel: UILabel!
+    
+    private lazy var eyeButton: UIButton = {
+        let eyeButton = UIButton()
+        eyeButton.tintColor = .gray
+        let eyeImage = UIImage(systemName: "eye")
+        eyeButton.setImage(eyeImage, for: .normal)
+        return eyeButton
+    }()
         
         // MARK: - Lifecycel
         
         override func viewDidLoad() {
             super.viewDidLoad()
-    //        setupBidings()
-            let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
-                  view.addGestureRecognizer(tap)
-            loginView()
-            logIn.layer.cornerRadius = 10.0
+            setupLoginView()
+            logInButton.layer.cornerRadius = 10.0
             addHideButton()
-            errorLable.isHidden = true
-            editTextField()
+            emailErrorLabel.isHidden = true
+            passwordErrorLabel.isHidden = true
+            setupTextField()
+            doBidings()
             self.view.backgroundColor = .white
         }
         
-        // MARK: - Actions
+        // MARK: - Reactive
     
-    func loginView() {
+    func doBidings() {
+        bindOutputs()
+        bindInputs()
+        bindUI()
+        bindNavigation()
+    }
+    
+    private func bindInputs() {
+        emailTextField.rx.text.orEmpty
+            .bind(to: viewModel.email)
+            .disposed(by: disposeBag)
+        passwordTextField.rx.text.orEmpty
+            .bind(to: viewModel.password)
+            .disposed(by: disposeBag)
+    }
+    
+    private func bindUI() {
+        eyeButton.rx.tap.asDriver()
+            .drive(onNext: { [weak self] _ in
+                let isSelected = self?.eyeButton.tintColor == .tweegoRed
+                self?.eyeButton.tintColor = isSelected ? .gray : .tweegoRed
+                self?.passwordTextField.isSecureTextEntry = isSelected
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    private func bindNavigation(){
+        logInButton.rx.tap
+            .do(onNext: {[weak self] in
+                self?.defaultsHelper.setLogin(isSeen: true)
+            })
+            .subscribe(onNext: {[weak self] in
+                let logInViewController = UIStoryboard.main.instantiateViewController(identifier: "MainScreenViewController")
+                self?.navigationController?.setViewControllers([logInViewController], animated: true)
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    private func bindOutputs() {
+        viewModel.emailError.skip(1)
+            .subscribe(onNext: {[weak self] error in
+                if let error = error {
+                    self?.emailErrorLabel.text = error
+                    self?.emailErrorLabel.isHidden = false
+                } else {
+                    self?.emailErrorLabel.isHidden = true
+                }
+            })
+            .disposed(by: disposeBag)
+        
+        viewModel.passwordError.skip(2)
+            .subscribe(onNext: {[weak self] error in
+                if let error = error {
+                    self?.passwordErrorLabel.text = error
+                    self?.passwordErrorLabel.isHidden = false
+                } else {
+                    self?.passwordErrorLabel.isHidden = true
+                }
+            })
+            .disposed(by: disposeBag)
+        
+        viewModel.isLogInEnabled
+            .bind(to: logInButton.rx.isEnabled)
+            .disposed(by: disposeBag)
+    }
+    
+    // MARK: - Actions
+    
+    func setupLoginView() {
         logInView.layer.cornerRadius = 10.0
         logInView.layer.shadowColor = UIColor.gray.cgColor
         logInView.layer.shadowOpacity = 1
@@ -63,55 +128,24 @@ class LogInViewController: UIViewController {
         logInView.layer.shadowRadius = 10
     }
         
-        func editTextField() {
-            emailTextField.attributedPlaceholder = NSAttributedString(string: "E-mail",
-                                         attributes: [NSAttributedString.Key.foregroundColor: UIColor.init(red: 190/255, green: 190/255, blue: 190/255, alpha: 1)])
-            passwordTextField.attributedPlaceholder = NSAttributedString(string: "Password",
-                                         attributes: [NSAttributedString.Key.foregroundColor: UIColor.init(red: 190/255, green: 190/255, blue: 190/255, alpha: 1)])
+    func setupTextField() {
+        let foregroundColor = UIColor.init(red: 190/255, green: 190/255, blue: 190/255, alpha: 1)
+            emailTextField.attributedPlaceholder = NSAttributedString(
+                string: "E-mail",
+                attributes: [.foregroundColor: foregroundColor ]
+                )
+            passwordTextField.attributedPlaceholder = NSAttributedString(
+                string: "Password",
+                attributes: [.foregroundColor: foregroundColor]
+                )
         }
         
         
-        @IBAction func logInButton(_ sender: Any) {
-        defaultsHelper.setLogin(isSeen: true)
-        if emailTextField.text?.validateEmail() == true, passwordTextField.text != "" {
-            
-            let logInViewController = UIStoryboard.main.instantiateViewController(identifier: "MainScreenViewController")
-            navigationController?.setViewControllers([logInViewController], animated: true)
-            
-        } else {
-            errorLable.isHidden = false
-            errorLable.text = "email is not valid!"
-        }
-    }
-    
-    @IBAction func hideButtonTapped(_ sender: Any) {
-        if passwordTextField.isSecureTextEntry == true {
-            passwordTextField.isSecureTextEntry = false
-        } else {
-            passwordTextField.isSecureTextEntry = true
-        }
-        
-    }
-   
-    //MARK: - Methods
-    
-    @objc func dismissKeyboard() {
-        view.endEditing(true)
-      }
-   
-    func validateEmail(emailID: String) -> Bool {
-        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-
-        let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
-        
-        return emailPred.evaluate(with: emailID)
-    }
+     
    
     func addHideButton() {
-        passwordTextField.addSubview(hidePasswordButton)
-        passwordTextField.rightView = hidePasswordButton
-        hidePasswordButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: -16, bottom: 0, right: 0)
+        passwordTextField.rightView = eyeButton
         passwordTextField.rightViewMode = .always
     }
-}
 
+}

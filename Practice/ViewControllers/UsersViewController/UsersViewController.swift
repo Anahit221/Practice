@@ -7,54 +7,53 @@
 
 
 import UIKit
-import Alamofire
+import RxSwift
 
-class UsersViewController: UIViewController {
+class UsersViewController: NavigationBarViewController {
     
-    @IBOutlet var tableView: UITableView! {
-        didSet {
-          
-            tableView.dataSource = self
-        }
-    }
+    private let disposeBag = DisposeBag()
+    private let viewModel = UsersViewModel()
+    
+    @IBOutlet var tableView: UITableView!
 
-    var allUsers = [User]()
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getUsersAlamofire()
+        doBindings()
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        viewModel.refresh.accept(())
+    }
+    private func doBindings() {
+        bindOutputs()
     }
     
-
-    private func getUsersAlamofire() {
-        guard
-            let url = URL.usersURL
-        else { return }
-        let decoder = JSONDecoder()
-        AF.request(url).responseDecodable(
-            of: [User].self,
-            queue: .main,
-            decoder: decoder
-        ) { [weak self] response in
-            if let users = response.value {
-                self?.allUsers += users
-                  self?.tableView.reloadData()
+    private func bindOutputs() {
+        viewModel.users
+            .bind(to: tableView.rx.items) { tv, row, user in
+                let indexPath = IndexPath(row: row, section: 0)
                 
+                guard let cell = tv.dequeueReusableCell(withIdentifier: "UserCell", for: indexPath) as? UserCell
+                else { fatalError() }
+                cell.user = user
+                return cell
             }
-        }
-    }
+            .disposed(by: disposeBag)
+        
+//        tableView.rx.modelSelected(User.self)
+//            .subscribe(onNext: {[weak self] user in
+//                self?.performSegue(withIdentifier: "segue", sender: self)
+//            })
+//    }
+//        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//            if let destination = segue.destination as? UsersViewController {
+//                destination.user = sender as? User
+//            }
+//        }
+
+   
+     }
+
 }
-
-extension UsersViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        allUsers.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "UserCell") as! UserCell
-        cell.configure(with: allUsers[indexPath.row])
-        return cell
-    }   
-}
-
-

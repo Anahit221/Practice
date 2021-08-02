@@ -15,17 +15,31 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
        
         guard let _ = (scene as? UIWindowScene) else { return }
-        let defaultsHelper = DefaultsHelper()
-        let initialViewController: UIViewController
         
+        let defaultsHelper = DefaultsHelper()
+        
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = .lightGray
+        
+        let navigationController = window?.rootViewController as? UINavigationController
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.compactAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        
+        navigationController?.setNavigationBarHidden(!defaultsHelper.isLoginSeen, animated: false)
+       
+        var  initialViewController: UIViewController
         if defaultsHelper.isLoginSeen {
             initialViewController = UIStoryboard.main.instantiateViewController(identifier: "MainScreenViewController")
-        } else if defaultsHelper.isOnboardingSeen {  initialViewController = UIStoryboard.main.instantiateViewController(identifier: "LogInViewController")
+        } else if defaultsHelper.isOnboardingSeen {
+            initialViewController = UIStoryboard.main.instantiateViewController(identifier: "LogInViewController")
         } else {
-            initialViewController = UIStoryboard.main.instantiateViewController(identifier: "OnboardingViewController")}
-        let navigationController = window?.rootViewController as? UINavigationController
-        navigationController?.setNavigationBarHidden(true, animated: false)
+            initialViewController = UIStoryboard.main.instantiateViewController(identifier: "OnboardingViewController")
+            
+        }
         navigationController?.setViewControllers([initialViewController], animated: false)
+        
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
