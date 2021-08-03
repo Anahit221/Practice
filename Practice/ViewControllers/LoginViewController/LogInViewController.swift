@@ -13,12 +13,15 @@ import RxGesture
 
 class LogInViewController: UIViewController {
     
+        // MARK: - Properties
+    
         private let defaultsHelper = DefaultsHelper()
         private let viewModel = LoginViewModel()
         private let disposeBag = DisposeBag()
         
         
         // MARK: - Outlets
+    
         @IBOutlet weak var emailTextField: UITextField!
         @IBOutlet weak var passwordTextField: UITextField!
         @IBOutlet weak var logInView: UIView!
@@ -80,10 +83,10 @@ class LogInViewController: UIViewController {
     
     private func bindNavigation(){
         logInButton.rx.tap
-            .do(onNext: {[weak self] in
+            .do(onNext: { [weak self] in
                 self?.defaultsHelper.setLogin(isSeen: true)
             })
-            .subscribe(onNext: {[weak self] in
+            .subscribe(onNext: { [weak self] in
                 let logInViewController = UIStoryboard.main.instantiateViewController(identifier: "MainScreenViewController")
                 self?.navigationController?.setViewControllers([logInViewController], animated: true)
             })
@@ -92,7 +95,7 @@ class LogInViewController: UIViewController {
     
     private func bindOutputs() {
         viewModel.emailError.skip(1)
-            .subscribe(onNext: {[weak self] error in
+            .subscribe(onNext: { [weak self] error in
                 if let error = error {
                     self?.emailErrorLabel.text = error
                     self?.emailErrorLabel.isHidden = false
@@ -103,7 +106,7 @@ class LogInViewController: UIViewController {
             .disposed(by: disposeBag)
         
         viewModel.passwordError.skip(2)
-            .subscribe(onNext: {[weak self] error in
+            .subscribe(onNext: { [weak self] error in
                 if let error = error {
                     self?.passwordErrorLabel.text = error
                     self?.passwordErrorLabel.isHidden = false
@@ -118,7 +121,7 @@ class LogInViewController: UIViewController {
             .disposed(by: disposeBag)
     }
     
-    // MARK: - Actions
+    // MARK: - Methods
     
     func setupLoginView() {
         logInView.layer.cornerRadius = 10.0
@@ -139,10 +142,7 @@ class LogInViewController: UIViewController {
                 attributes: [.foregroundColor: foregroundColor]
                 )
         }
-        
-        
-     
-   
+ 
     func addHideButton() {
         passwordTextField.rightView = eyeButton
         passwordTextField.rightViewMode = .always

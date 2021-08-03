@@ -16,6 +16,7 @@
 		55308E8926A15C3E002B9939 /* MainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55308E8826A15C3E002B9939 /* MainScreenViewController.swift */; };
 		5533C4C126A6D660005085C5 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5533C4C026A6D660005085C5 /* MenuViewController.swift */; };
 		5533C4C626A6F258005085C5 /* SlideInTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5533C4C526A6F258005085C5 /* SlideInTransition.swift */; };
+		553AAD5E26B947D5000913FF /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553AAD5D26B947D5000913FF /* Contact.swift */; };
 		553EF8E526B2DAD700A78029 /* URL + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553EF8E426B2DAD700A78029 /* URL + Ext.swift */; };
 		5540C71126A001130092ACC7 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5540C71026A001130092ACC7 /* Montserrat-Regular.ttf */; };
 		554B0866268EE23A00C647E7 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554B0865268EE23A00C647E7 /* OnboardingViewController.swift */; };
@@ -43,7 +44,7 @@
 		55F81A9B26B7ECA5005DAF08 /* UsersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F81A9A26B7ECA5005DAF08 /* UsersService.swift */; };
 		55F81AA826B7F89A005DAF08 /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F81AA726B7F89A005DAF08 /* ContactsViewController.swift */; };
 		55F81AAB26B7F8AC005DAF08 /* MediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F81AAA26B7F8AC005DAF08 /* MediaViewController.swift */; };
-		55F81AB026B8279D005DAF08 /* UserDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F81AAF26B8279D005DAF08 /* UserDetailsViewController.swift */; };
+		55F81AB026B8279D005DAF08 /* AlbumsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F81AAF26B8279D005DAF08 /* AlbumsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +56,7 @@
 		55308E8826A15C3E002B9939 /* MainScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewController.swift; sourceTree = "<group>"; };
 		5533C4C026A6D660005085C5 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		5533C4C526A6F258005085C5 /* SlideInTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideInTransition.swift; sourceTree = "<group>"; };
+		553AAD5D26B947D5000913FF /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		553EF8E426B2DAD700A78029 /* URL + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL + Ext.swift"; sourceTree = "<group>"; };
 		5540C71026A001130092ACC7 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		554B0865268EE23A00C647E7 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
@@ -84,7 +86,7 @@
 		55F81A9A26B7ECA5005DAF08 /* UsersService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersService.swift; sourceTree = "<group>"; };
 		55F81AA726B7F89A005DAF08 /* ContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
 		55F81AAA26B7F8AC005DAF08 /* MediaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaViewController.swift; sourceTree = "<group>"; };
-		55F81AAF26B8279D005DAF08 /* UserDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsViewController.swift; sourceTree = "<group>"; };
+		55F81AAF26B8279D005DAF08 /* AlbumsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsViewController.swift; sourceTree = "<group>"; };
 		A55307B93EC40672AF1D7730 /* Pods_Practice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Practice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2EC099BE69FB52EE9E1FA9D /* Pods-Practice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Practice.debug.xcconfig"; path = "Target Support Files/Pods-Practice/Pods-Practice.debug.xcconfig"; sourceTree = "<group>"; };
 		C0A6A61E9146CE9A67E7ECDB /* Pods-Practice.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Practice.release.xcconfig"; path = "Target Support Files/Pods-Practice/Pods-Practice.release.xcconfig"; sourceTree = "<group>"; };
@@ -115,10 +117,11 @@
 			children = (
 				5519352E26B1413200D13058 /* User.swift */,
 				55BFC35126A8057E001AF32B /* LogInViewModel.swift */,
+				55F81A9626B7EB4E005DAF08 /* UsersViewModel.swift */,
 				55BFC35626A805F8001AF32B /* OnboardingViewModel.swift */,
 				55BFC35F26A807BA001AF32B /* MenuViewModel.swift */,
 				55BFC35B26A806CC001AF32B /* MainScreenViewModel.swift */,
-				55F81A9626B7EB4E005DAF08 /* UsersViewModel.swift */,
+				553AAD5D26B947D5000913FF /* Contact.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -150,7 +153,7 @@
 				550E293926AFD72F004DC5F4 /* NavigationBarViewController.swift */,
 				55F81AA726B7F89A005DAF08 /* ContactsViewController.swift */,
 				55F81AAA26B7F8AC005DAF08 /* MediaViewController.swift */,
-				55F81AAF26B8279D005DAF08 /* UserDetailsViewController.swift */,
+				55F81AAF26B8279D005DAF08 /* AlbumsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -414,7 +417,8 @@
 				55BFC35C26A806CC001AF32B /* MainScreenViewModel.swift in Sources */,
 				55772628268DE6FC007F2E03 /* NavigatorViewController.swift in Sources */,
 				55CEB3B2269726C400D0358F /* DefaultsHelper.swift in Sources */,
-				55F81AB026B8279D005DAF08 /* UserDetailsViewController.swift in Sources */,
+				55F81AB026B8279D005DAF08 /* AlbumsViewController.swift in Sources */,
+				553AAD5E26B947D5000913FF /* Contact.swift in Sources */,
 				5577262C268DE716007F2E03 /* CoinViewController.swift in Sources */,
 				5519352F26B1413200D13058 /* User.swift in Sources */,
 				5519353B26B159DA00D13058 /* UserCell.swift in Sources */,
