@@ -5,32 +5,28 @@
 //  Created by Cypress on 7/2/21.
 //
 
-import UIKit
 import RxCocoa
-import RxSwift
 import RxGesture
-
+import RxSwift
+import UIKit
 
 class LogInViewController: UIViewController {
-    
-        // MARK: - Properties
-    
-        private let defaultsHelper = DefaultsHelper()
-        private let viewModel = LoginViewModel()
-        private let disposeBag = DisposeBag()
-        
-        
-        // MARK: - Outlets
-    
-        @IBOutlet weak var emailTextField: UITextField!
-        @IBOutlet weak var passwordTextField: UITextField!
-        @IBOutlet weak var logInView: UIView!
-        @IBOutlet weak var logInButton: UIButton!
-        @IBOutlet weak var fbButton: UIButton!
-        @IBOutlet weak var fbImage: UIImageView!
-        @IBOutlet weak var emailErrorLabel: UILabel!
-        @IBOutlet weak var passwordErrorLabel: UILabel!
-    
+    // MARK: - Properties
+
+    private let defaultsHelper = DefaultsHelper.shared
+    private let viewModel = LoginViewModel()
+    private let disposeBag = DisposeBag()
+
+    // MARK: - Outlets
+
+    @IBOutlet var emailTextField: UITextField!
+    @IBOutlet var passwordTextField: UITextField!
+    @IBOutlet var logInView: UIView!
+    @IBOutlet var logInButton: UIButton!
+    @IBOutlet var fbButton: UIButton!
+    @IBOutlet var fbImage: UIImageView!
+    @IBOutlet var emailErrorLabel: UILabel!
+    @IBOutlet var passwordErrorLabel: UILabel!
     private lazy var eyeButton: UIButton = {
         let eyeButton = UIButton()
         eyeButton.tintColor = .gray
@@ -38,39 +34,38 @@ class LogInViewController: UIViewController {
         eyeButton.setImage(eyeImage, for: .normal)
         return eyeButton
     }()
-        
-        // MARK: - Lifecycel
-        
-        override func viewDidLoad() {
-            super.viewDidLoad()
-            setupLoginView()
-            logInButton.layer.cornerRadius = 10.0
-            addHideButton()
-            emailErrorLabel.isHidden = true
-            passwordErrorLabel.isHidden = true
-            setupTextField()
-            doBidings()
-            self.view.backgroundColor = .white
-        }
-        
-        // MARK: - Reactive
-    
+
+    // MARK: - Lifecycle
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupLoginView()
+        addHideButton()
+        setupTextField()
+        doBidings()
+        setupLoginButton()
+        hideErrorLabel()
+    }
+
+    // MARK: - Reactive
+
     func doBidings() {
         bindOutputs()
         bindInputs()
         bindUI()
         bindNavigation()
     }
-    
+
     private func bindInputs() {
         emailTextField.rx.text.orEmpty
-            .bind(to: viewModel.email)
+            .bind(to: viewModel.emailTextInput)
             .disposed(by: disposeBag)
+
         passwordTextField.rx.text.orEmpty
-            .bind(to: viewModel.password)
+            .bind(to: viewModel.passwordTextInput)
             .disposed(by: disposeBag)
     }
-    
+
     private func bindUI() {
         eyeButton.rx.tap.asDriver()
             .drive(onNext: { [weak self] _ in
@@ -80,8 +75,8 @@ class LogInViewController: UIViewController {
             })
             .disposed(by: disposeBag)
     }
-    
-    private func bindNavigation(){
+
+    private func bindNavigation() {
         logInButton.rx.tap
             .do(onNext: { [weak self] in
                 self?.defaultsHelper.setLogin(isSeen: true)
@@ -92,7 +87,7 @@ class LogInViewController: UIViewController {
             })
             .disposed(by: disposeBag)
     }
-    
+
     private func bindOutputs() {
         viewModel.emailError.skip(1)
             .subscribe(onNext: { [weak self] error in
@@ -104,7 +99,6 @@ class LogInViewController: UIViewController {
                 }
             })
             .disposed(by: disposeBag)
-        
         viewModel.passwordError.skip(2)
             .subscribe(onNext: { [weak self] error in
                 if let error = error {
@@ -115,14 +109,13 @@ class LogInViewController: UIViewController {
                 }
             })
             .disposed(by: disposeBag)
-        
         viewModel.isLogInEnabled
             .bind(to: logInButton.rx.isEnabled)
             .disposed(by: disposeBag)
     }
-    
+
     // MARK: - Methods
-    
+
     func setupLoginView() {
         logInView.layer.cornerRadius = 10.0
         logInView.layer.shadowColor = UIColor.gray.cgColor
@@ -130,22 +123,32 @@ class LogInViewController: UIViewController {
         logInView.layer.shadowOffset = .zero
         logInView.layer.shadowRadius = 10
     }
-        
+
     func setupTextField() {
-        let foregroundColor = UIColor.init(red: 190/255, green: 190/255, blue: 190/255, alpha: 1)
-            emailTextField.attributedPlaceholder = NSAttributedString(
-                string: "E-mail",
-                attributes: [.foregroundColor: foregroundColor ]
-                )
-            passwordTextField.attributedPlaceholder = NSAttributedString(
-                string: "Password",
-                attributes: [.foregroundColor: foregroundColor]
-                )
-        }
- 
+        let foregroundColor = UIColor(red: 190 / 255, green: 190 / 255, blue: 190 / 255, alpha: 1)
+
+        emailTextField.attributedPlaceholder = NSAttributedString(
+            string: "E-mail",
+            attributes: [.foregroundColor: foregroundColor]
+        )
+
+        passwordTextField.attributedPlaceholder = NSAttributedString(
+            string: "Password",
+            attributes: [.foregroundColor: foregroundColor]
+        )
+    }
+
     func addHideButton() {
         passwordTextField.rightView = eyeButton
         passwordTextField.rightViewMode = .always
     }
 
+    func setupLoginButton() {
+        logInButton.layer.cornerRadius = 10.0
+    }
+
+    func hideErrorLabel() {
+        emailErrorLabel.isHidden = true
+        passwordErrorLabel.isHidden = true
+    }
 }

@@ -8,15 +8,10 @@
 import UIKit
 
 class MapViewController: UIViewController {
+    @IBOutlet var mapImage: UIImageView!
 
-    @IBOutlet weak var mapImage: UIImageView!
-    
-    @IBOutlet weak var textMap: UIImageView!
+    @IBOutlet var textMap: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
-   
-    
-
 }

@@ -11,24 +11,30 @@ import RxRelay
 import RxSwift
 
 final class UsersViewModel {
+    // MARK: - Properties
+
     let disposeBag = DisposeBag()
-    
+
     // MARK: - Inputs
-    
+
     let refresh = PublishRelay<Void>()
-    
+
     // MARK: - Outputs
-    
+
     let users = PublishRelay<[User]>()
-    
+
+    // MARK: - Init
+
     init() {
         doBidings()
     }
-    
-    private func  doBidings() {
-         refresh
+
+    // MARK: - Methods
+
+    private func doBidings() {
+        refresh
             .flatMapLatest {
-                UsersService.shared.getUsers()
+                UsersDataManager.shared.getUsers()
             }
             .bind(to: users)
             .disposed(by: disposeBag)

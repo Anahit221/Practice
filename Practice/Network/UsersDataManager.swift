@@ -6,17 +6,17 @@
 //
 
 import Foundation
-import RxSwift
 import RxAlamofire
+import RxSwift
 
-class UsersService {
-    static let shared = UsersService()
-    
+class UsersDataManager {
+    static let shared = UsersDataManager()
     private init() {}
-    
+
     func getUsers() -> Observable<[User]> {
-        RxAlamofire.request(.get, URL.usersURL)
-            .validate(statusCode: 200..<300)
+        RxAlamofire
+            .request(.get, URL.usersURL)
+            .validate(statusCode: 200 ..< 300)
             .data()
             .compactMap { data in
                 let decoder = JSONDecoder()

@@ -11,4 +11,6 @@ target 'Practice' do
 	pod 'Alamofire', '~> 5.4'
 	pod 'RxGesture'	
 	pod 'RxAlamofire'
+	pod 'Kingfisher', '~> 6.0'
+	
 end

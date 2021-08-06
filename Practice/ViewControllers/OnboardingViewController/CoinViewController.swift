@@ -8,20 +8,16 @@
 import UIKit
 
 class CoinViewController: UIViewController {
-     let defaultsHelper = DefaultsHelper()
+    let defaultsHelper = DefaultsHelper.shared
 
- 
-    @IBOutlet weak var coinImage: UIImageView!
+    @IBOutlet var coinImage: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
+
     @IBAction func doneButton(_ sender: Any) {
         defaultsHelper.setOnboarding(isSeen: true)
         let logInViewController = UIStoryboard.main.instantiateViewController(identifier: "LogInViewController")
         navigationController?.setViewControllers([logInViewController], animated: true)
-        
-        
     }
-
 }

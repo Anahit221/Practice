@@ -15,18 +15,15 @@ enum MenuItem: Int {
 }
 
 protocol MenuDelegate: AnyObject {
-   func didSelect(_ item: MenuItem)
+    func didSelect(_ item: MenuItem)
 }
 
 class MenuViewController: UITableViewController {
-    
     weak var delegate: MenuDelegate?
-    
-    
+
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let item = MenuItem(rawValue: indexPath.row) else { return }
         delegate?.didSelect(item)
-        dismiss(animated: true) 
+        dismiss(animated: true)
     }
-    
 }

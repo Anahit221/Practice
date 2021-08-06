@@ -6,11 +6,11 @@
 //
 
 import Foundation
-import  UIKit
+import UIKit
 
 struct Contact {
+    let image: UIImage?
     let givenName: String
     let familyName: String
     let email: String?
-    
 }

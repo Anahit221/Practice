@@ -8,29 +8,28 @@
 import Foundation
 
 class DefaultsHelper {
-    
-   static let userDefaults = UserDefaults.standard
-  
-    
+    let userDefaults = UserDefaults.standard
+    static var shared = DefaultsHelper()
+    private init() {}
+
     enum Key: String {
         case onboardingSeen
         case loginSeen
     }
-    
+
     var isOnboardingSeen: Bool {
-        DefaultsHelper.userDefaults.bool(forKey: Key.onboardingSeen.rawValue)
+        userDefaults.bool(forKey: Key.onboardingSeen.rawValue)
     }
-    
+
     var isLoginSeen: Bool {
-        DefaultsHelper.userDefaults.bool(forKey: Key.loginSeen.rawValue)
+        userDefaults.bool(forKey: Key.loginSeen.rawValue)
     }
-    
-    
+
     func setOnboarding(isSeen: Bool) {
-        DefaultsHelper.userDefaults.set(isSeen, forKey: Key.onboardingSeen.rawValue)
+        userDefaults.set(isSeen, forKey: Key.onboardingSeen.rawValue)
     }
-    
+
     func setLogin(isSeen: Bool) {
-        DefaultsHelper.userDefaults.set(isSeen, forKey: Key.loginSeen.rawValue)
+        userDefaults.set(isSeen, forKey: Key.loginSeen.rawValue)
     }
 }

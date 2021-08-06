@@ -7,13 +7,8 @@
 
 import UIKit
 
-class MainScreenViewController: NavigationBarViewController  {
-   
-
+class MainScreenViewController: NavigationBarViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
 }
-
-
