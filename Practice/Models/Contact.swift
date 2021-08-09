@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 struct Contact {
+    let identifier: String
     let image: UIImage?
     let givenName: String
     let familyName: String

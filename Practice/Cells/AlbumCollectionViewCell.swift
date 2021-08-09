@@ -15,7 +15,6 @@ class AlbumCollectionViewCell: UICollectionViewCell {
     @IBOutlet private var imageView: UIImageView!
 
     var imageURL: URL! { didSet {
-        imageView.image = album.images
-
+        imageView.kf.setImage(with: imageURL)
     }}
 }

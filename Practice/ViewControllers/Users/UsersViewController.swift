@@ -24,6 +24,7 @@ class UsersViewController: NavigationBarViewController {
         super.viewDidLoad()
         doBindings()
         didTapUserCell()
+        setupNavigationItemTitle()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -52,13 +53,16 @@ class UsersViewController: NavigationBarViewController {
             }
             .disposed(by: disposeBag)
     }
+    
+    func setupNavigationItemTitle() {
+        navigationItem.title = " Users"
+    }
 
     func didTapUserCell() {
         tableView.rx.modelSelected(User.self)
             .subscribe(onNext: { [weak self] user in
                 if let vc = self?.storyboard?
-                    .instantiateViewController(identifier: "AlbumsViewController") as? AlbumsViewController
-                {
+                    .instantiateViewController(identifier: "AlbumsViewController") as? AlbumsViewController {
                     vc.viewModel.userID.accept(user.id)
                     self?.navigationController?.pushViewController(vc, animated: true)
                 }
