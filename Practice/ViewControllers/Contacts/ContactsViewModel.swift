@@ -32,7 +32,7 @@ final class ContactsViewModel {
     }
 
     // MARK: - Reactive
-    
+
     private let disposeBag = DisposeBag()
     private func doBindings() {
         refresh
@@ -42,7 +42,7 @@ final class ContactsViewModel {
             .map { $0.filter { !($0.email?.isEmpty ?? true) } }
             .bind(to: contacts)
             .disposed(by: disposeBag)
-        
+
         delete
             .withLatestFrom(contacts) { indexPath, contacts in
                 contacts[indexPath.row]
@@ -52,14 +52,14 @@ final class ContactsViewModel {
             }
             .bind(to: refresh)
             .disposed(by: disposeBag)
-        
+
         openEdit
             .withLatestFrom(contacts) { indexPath, contacts in
                 contacts[indexPath.row]
             }
             .bind(to: navigateToEdit)
             .disposed(by: disposeBag)
-        
+
         openDetail
             .withLatestFrom(contacts) { indexPath, contacts in
                 contacts[indexPath.row]

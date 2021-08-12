@@ -53,7 +53,7 @@ class UsersViewController: NavigationBarViewController {
             }
             .disposed(by: disposeBag)
     }
-    
+
     func setupNavigationItemTitle() {
         navigationItem.title = " Users"
     }

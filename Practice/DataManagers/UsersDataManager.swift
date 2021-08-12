@@ -12,6 +12,8 @@ import RxSwift
 class UsersDataManager {
     static let shared = UsersDataManager()
     private init() {}
+    
+    private lazy var helperScheduler = SerialDispatchQueueScheduler(queue: DBService.shared.helperQueue, internalSerialQueueName: "UsersDataManager")
 
     func getUsers() -> Observable<[User]> {
         RxAlamofire
@@ -22,6 +24,13 @@ class UsersDataManager {
                 let decoder = JSONDecoder()
                 guard let users = try? decoder.decode([User].self, from: data) else { return nil }
                 return users
+            }
+            .do(onNext: { users in
+                DBService.shared.save(users: users)
+            })
+            .subscribe(on: helperScheduler)
+            .flatMap { _ -> Observable<[User]> in
+                DBService.shared.users
             }
     }
 }

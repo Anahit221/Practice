@@ -10,15 +10,15 @@ import RxSwift
 import UIKit
 
 class ContactViewController: UIViewController {
-    //MARK: Dependencies
-    
+    // MARK: Dependencies
+
     private let viewModel = ContactViewModel()
     
     var contact: Contact!
     var isInEditingMode = false
-    
+
     // MARK: - Subviews
-    
+
     @IBOutlet private var avatarImageView: UIImageView!
     @IBOutlet private var firstNameTextField: UITextField!
     @IBOutlet private var lastNameTextField: UITextField!
@@ -35,14 +35,14 @@ class ContactViewController: UIViewController {
         button.tintColor = .darkGray
         return button
     }()
-    
+
     private let saveButton: UIButton = {
         let button = UIButton()
         button.setTitleColor(.darkGray, for: .normal)
         button.setTitle("Save", for: .normal)
         return button
     }()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         doBinding()
@@ -56,12 +56,11 @@ class ContactViewController: UIViewController {
     }
     
     private let disposeBag = DisposeBag()
-    
     private func doBinding() {
         bindOutputs()
         bindInputs()
     }
-    
+
     private func bindInputs() {
         firstNameTextField.rx.text.orEmpty
             .bind(to: viewModel.firstName)
@@ -83,8 +82,6 @@ class ContactViewController: UIViewController {
         saveButton.rx.tap
             .bind(to: viewModel.save)
             .disposed(by: disposeBag)
-        
-        
     }
     
     private func bindOutputs() {
@@ -103,7 +100,7 @@ class ContactViewController: UIViewController {
         viewModel.contact.map(\.email)
             .bind(to: emailTextField.rx.text)
             .disposed(by: disposeBag)
-        
+    
         viewModel.isInEditingMode
             .bind(to: editButton.rx.isHidden)
             .disposed(by: disposeBag)
@@ -112,7 +109,7 @@ class ContactViewController: UIViewController {
             .map { !$0 }
             .bind(to: saveButton.rx.isHidden)
             .disposed(by: disposeBag)
-        
+
         viewModel.isInEditingMode
             .bind(to: firstNameTextField.rx.isUserInteractionEnabled,
                   lastNameTextField.rx.isUserInteractionEnabled,

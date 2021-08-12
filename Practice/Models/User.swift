@@ -12,3 +12,11 @@ struct User: Decodable {
     let username: String
     let email: String
 }
+
+extension User {
+    init(realmUser: RealmUser) {
+        id = realmUser.id
+        username = realmUser.username
+        email = realmUser.email
+    }
+}

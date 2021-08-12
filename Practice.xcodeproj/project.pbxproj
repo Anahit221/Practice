@@ -29,6 +29,8 @@
 		55571324269F1B06005D0092 /* Futura Bold font.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 55571323269F1B06005D0092 /* Futura Bold font.ttf */; };
 		55571329269F43A5005D0092 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55571328269F43A5005D0092 /* UIColor+Extension.swift */; };
 		55608C40268C45F300CB8202 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 55608C3F268C45F300CB8202 /* .gitignore */; };
+		556C0A7726C2A13B0036769E /* DBService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556C0A7626C2A13B0036769E /* DBService.swift */; };
+		556C0A7A26C2B26C0036769E /* RealmUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556C0A7926C2B26C0036769E /* RealmUser.swift */; };
 		557287C826BBD25100A88FE7 /* AlbumsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557287C726BBD25100A88FE7 /* AlbumsViewModel.swift */; };
 		557287CC26BBD8AE00A88FE7 /* AlbumTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557287CB26BBD8AE00A88FE7 /* AlbumTableViewCell.swift */; };
 		55745CBE269C095900D02705 /* UIStoryboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55745CBD269C095900D02705 /* UIStoryboard+Extension.swift */; };
@@ -78,6 +80,8 @@
 		55571323269F1B06005D0092 /* Futura Bold font.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Futura Bold font.ttf"; sourceTree = "<group>"; };
 		55571328269F43A5005D0092 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		55608C3F268C45F300CB8202 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		556C0A7626C2A13B0036769E /* DBService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBService.swift; sourceTree = "<group>"; };
+		556C0A7926C2B26C0036769E /* RealmUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmUser.swift; sourceTree = "<group>"; };
 		557287C726BBD25100A88FE7 /* AlbumsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsViewModel.swift; sourceTree = "<group>"; };
 		557287CB26BBD8AE00A88FE7 /* AlbumTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumTableViewCell.swift; sourceTree = "<group>"; };
 		55745CBD269C095900D02705 /* UIStoryboard+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Extension.swift"; sourceTree = "<group>"; };
@@ -137,6 +141,7 @@
 				5519352E26B1413200D13058 /* User.swift */,
 				553AAD5D26B947D5000913FF /* Contact.swift */,
 				55D7F2DD26BA91B700F0534A /* Album.swift */,
+				556C0A7926C2B26C0036769E /* RealmUser.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -165,6 +170,8 @@
 			isa = PBXGroup;
 			children = (
 				55B905AF268B55F000329D66 /* Main.storyboard */,
+				550E293926AFD72F004DC5F4 /* NavigationBarViewController.swift */,
+				556C0A7C26C2B6DE0036769E /* Media */,
 				557287C626BBD23100A88FE7 /* Albums */,
 				55D7F2F426BAA52100F0534A /* Contacts */,
 				5506ED1C26AAA75800B064A4 /* Users */,
@@ -172,8 +179,6 @@
 				55BFC35526A805D1001AF32B /* OnboardingViewController */,
 				55BFC35A26A8062E001AF32B /* MainScreenViewController */,
 				55BFC35E26A8071C001AF32B /* MenuViewController */,
-				550E293926AFD72F004DC5F4 /* NavigationBarViewController.swift */,
-				55F81AAA26B7F8AC005DAF08 /* MediaViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -194,6 +199,22 @@
 				55608C3F268C45F300CB8202 /* .gitignore */,
 			);
 			path = Git;
+			sourceTree = "<group>";
+		};
+		556C0A7526C2A1150036769E /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				556C0A7626C2A13B0036769E /* DBService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		556C0A7C26C2B6DE0036769E /* Media */ = {
+			isa = PBXGroup;
+			children = (
+				55F81AAA26B7F8AC005DAF08 /* MediaViewController.swift */,
+			);
+			path = Media;
 			sourceTree = "<group>";
 		};
 		557287C626BBD23100A88FE7 /* Albums */ = {
@@ -226,10 +247,11 @@
 		55B905A8268B55F000329D66 /* Practice */ = {
 			isa = PBXGroup;
 			children = (
+				556C0A7526C2A1150036769E /* Services */,
 				55F81A9926B7EC87005DAF08 /* DataManagers */,
 				5519353926B159AB00D13058 /* Cells */,
 				5519352D26B1412100D13058 /* Models */,
-				55CEB3AD2697230C00D0358F /* Service */,
+				55CEB3AD2697230C00D0358F /* Helpers */,
 				55608C3E268C458E00CB8202 /* Git */,
 				551FBF9D26943E2A0096FEEC /* ViewControllers */,
 				55571326269F201D005D0092 /* Fonts */,
@@ -280,7 +302,7 @@
 			path = MenuViewController;
 			sourceTree = "<group>";
 		};
-		55CEB3AD2697230C00D0358F /* Service */ = {
+		55CEB3AD2697230C00D0358F /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
 				55CEB3B1269726C400D0358F /* DefaultsHelper.swift */,
@@ -291,7 +313,7 @@
 				55D7F2D526BA6D8700F0534A /* UITableViewCell+Extension.swift */,
 				55043B6D26BD3EB7009B369A /* JSONDecoder+Extentions.swift */,
 			);
-			path = Service;
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		55D7F2F426BAA52100F0534A /* Contacts */ = {
@@ -468,6 +490,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				55308E8626A15641002B9939 /* String+Extension.swift in Sources */,
+				556C0A7726C2A13B0036769E /* DBService.swift in Sources */,
 				553EF8E526B2DAD700A78029 /* URL+Extension.swift in Sources */,
 				557287C826BBD25100A88FE7 /* AlbumsViewModel.swift in Sources */,
 				55F81A9B26B7ECA5005DAF08 /* UsersDataManager.swift in Sources */,
@@ -490,6 +513,7 @@
 				55B905AA268B55F000329D66 /* AppDelegate.swift in Sources */,
 				55D7F2D026BA5B4400F0534A /* ContactsViewModel.swift in Sources */,
 				557287CC26BBD8AE00A88FE7 /* AlbumTableViewCell.swift in Sources */,
+				556C0A7A26C2B26C0036769E /* RealmUser.swift in Sources */,
 				55043B6E26BD3EB7009B369A /* JSONDecoder+Extentions.swift in Sources */,
 				559F161526C12CC0001AD9E0 /* ContactsDataManager.swift in Sources */,
 				551DE59B26C14560009400AE /* ContactViewModel.swift in Sources */,
