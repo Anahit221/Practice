@@ -1,5 +1,5 @@
 //
-//  NavigationBarViewController.swift
+//  BaseViewController.swift
 //  Practice
 //
 //  Created by Cypress on 7/27/21.
@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class NavigationBarViewController: UIViewController {
+class BaseViewController: UIViewController {
     // MARK: - Properties
 
     let transition = SlideInTransition()
@@ -50,7 +50,7 @@ class NavigationBarViewController: UIViewController {
 
 // MARK: - Extenstions
 
-extension NavigationBarViewController: UIViewControllerTransitioningDelegate {
+extension BaseViewController: UIViewControllerTransitioningDelegate {
     func animationController(forPresented presented: UIViewController,
                              presenting: UIViewController,
                              source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
@@ -64,7 +64,7 @@ extension NavigationBarViewController: UIViewControllerTransitioningDelegate {
     }
 }
 
-extension NavigationBarViewController: MenuDelegate {
+extension BaseViewController: MenuDelegate {
     func didSelect(_ item: MenuItem) {
         guard let selectedViewController = storyboard?.instantiateViewController(identifier: item.vcIdentifire)
         else { return }

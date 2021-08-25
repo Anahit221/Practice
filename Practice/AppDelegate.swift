@@ -5,6 +5,7 @@
 //  Created by Cypress on 6/29/21.
 //
 
+import AVFoundation
 import UIKit
 
 @main
@@ -12,14 +13,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback, options: [])
+            try AVAudioSession.sharedInstance().setActive(true)
+
+        } catch {
+            print("error occured")
+        }
+        createDocumentsDirectoryIfNeeded()
         return true
     }
-
-//    private func configureAppLauching() {
-//        guard let navigation = window?.rootViewController as? UINavigationController else { return }
-//
-//     navigation.viewControllers [ ]
-//    }
 
     // MARK: UISceneSession Lifecycle
 
@@ -32,4 +36,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {}
+}
+
+private func createDocumentsDirectoryIfNeeded() {
+    guard let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
+    if FileManager.default.contents(atPath: documentsURL.path) == nil {
+        let dummy = String()
+        do {
+            let dummyURL = documentsURL.appendingPathComponent(".dummy.txt")
+            try dummy.write(to: dummyURL, atomically: true, encoding: .utf8)
+        } catch {
+            fatalError(error.localizedDescription)
+        }
+    }
 }

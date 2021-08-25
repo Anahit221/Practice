@@ -9,10 +9,10 @@ import Foundation
 import RxSwift
 import UIKit
 
-class AlbumsViewController: NavigationBarViewController {
+class AlbumsViewController: BaseViewController {
     // MARK: - Properties
 
-     let viewModel = AlbumsViewModel()
+    let viewModel = AlbumsViewModel()
 
     // MARK: - Outlets
 
@@ -23,6 +23,7 @@ class AlbumsViewController: NavigationBarViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         doBindings()
+        refreshData()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -46,5 +47,18 @@ class AlbumsViewController: NavigationBarViewController {
                 return cell
             }
             .disposed(by: disposeBag)
+    }
+
+    private func refreshData() {
+        tableView.refreshControl = UIRefreshControl()
+        tableView.refreshControl?.addTarget(self, action: #selector(didPullToRefreshData), for: .valueChanged)
+    }
+
+    @objc
+    private func didPullToRefreshData() {
+        DispatchQueue.main.async {
+            self.viewModel.refresh.accept(())
+            self.tableView.refreshControl?.endRefreshing()
+        }
     }
 }

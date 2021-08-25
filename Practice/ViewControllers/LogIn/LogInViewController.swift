@@ -45,6 +45,7 @@ class LogInViewController: UIViewController {
         doBidings()
         setupLoginButton()
         hideErrorLabel()
+        closeKeyboardWhenTapped()
     }
 
     // MARK: - Reactive
@@ -79,11 +80,12 @@ class LogInViewController: UIViewController {
     private func bindNavigation() {
         logInButton.rx.tap
             .do(onNext: { [weak self] in
-                self?.defaultsHelper.setLogin(isSeen: true)
+                self?.defaultsHelper.set(loggedIn: true)
             })
             .subscribe(onNext: { [weak self] in
-                let logInViewController = UIStoryboard.main.instantiateViewController(identifier: "MainScreenViewController")
-                self?.navigationController?.setViewControllers([logInViewController], animated: true)
+                self?.navigationController?.setNavigationBarHidden(false, animated: true)
+                let mainScreen = UIStoryboard.main.instantiateViewController(identifier: "MainScreenViewController")
+                self?.navigationController?.setViewControllers([mainScreen], animated: true)
             })
             .disposed(by: disposeBag)
     }
@@ -150,5 +152,14 @@ class LogInViewController: UIViewController {
     func hideErrorLabel() {
         emailErrorLabel.isHidden = true
         passwordErrorLabel.isHidden = true
+    }
+    private func closeKeyboardWhenTapped() {
+        let tapBackground = UITapGestureRecognizer()
+        view.addGestureRecognizer(tapBackground)
+        tapBackground.rx.event
+            .subscribe(onNext: {[weak self] _ in
+                self?.view.endEditing(true)
+            })
+            .disposed(by: disposeBag)
     }
 }

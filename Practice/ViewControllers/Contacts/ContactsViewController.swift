@@ -9,7 +9,7 @@ import Contacts
 import RxSwift
 import UIKit
 
-class ContactsViewController: NavigationBarViewController {
+class ContactsViewController: BaseViewController {
     // MARK: MVVM
 
     private let viewModel = ContactsViewModel()
@@ -28,6 +28,7 @@ class ContactsViewController: NavigationBarViewController {
         tableView.rx.setDelegate(self)
             .disposed(by: disposeBag)
         setupNavigationTitle()
+        refreshData()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -74,6 +75,19 @@ class ContactsViewController: NavigationBarViewController {
                 self?.navigateToDetail(contact: contact, shouldEdit: false)
             })
             .disposed(by: disposeBag)
+    }
+
+    private func refreshData() {
+        tableView.refreshControl = UIRefreshControl()
+        tableView.refreshControl?.addTarget(self, action: #selector(didPullToRefreshData), for: .valueChanged)
+    }
+
+    @objc
+    private func didPullToRefreshData() {
+        DispatchQueue.main.async {
+            self.viewModel.refresh.accept(())
+            self.tableView.refreshControl?.endRefreshing()
+        }
     }
 
     private func setupNavigationTitle() {

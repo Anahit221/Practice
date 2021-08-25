@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainScreenViewController: NavigationBarViewController {
+class MainScreenViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Main Menu"

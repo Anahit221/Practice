@@ -8,7 +8,7 @@
 import RxSwift
 import UIKit
 
-class UsersViewController: NavigationBarViewController {
+class UsersViewController: BaseViewController {
     // MARK: - Properties
 
     private let disposeBag = DisposeBag()
@@ -25,6 +25,7 @@ class UsersViewController: NavigationBarViewController {
         doBindings()
         didTapUserCell()
         setupNavigationItemTitle()
+        refreshData()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -53,7 +54,21 @@ class UsersViewController: NavigationBarViewController {
             }
             .disposed(by: disposeBag)
     }
+    
+    private func refreshData() {
+        tableView.refreshControl = UIRefreshControl()
+        tableView.refreshControl?.addTarget(self, action: #selector(didPullToRefreshData), for: .valueChanged)
+        
+    }
 
+    @objc
+    private func didPullToRefreshData() {
+        DispatchQueue.main.async {
+            self.viewModel.refresh.accept(())
+            self.tableView.refreshControl?.endRefreshing()
+        }
+    }
+    
     func setupNavigationItemTitle() {
         navigationItem.title = " Users"
     }

@@ -9,6 +9,6 @@ import Foundation
 import UIKit
 
 extension UIStoryboard {
-   static var main: UIStoryboard { UIStoryboard(name: "Main", bundle: nil)
-    }
+    static let main = UIStoryboard(name: "Main", bundle: nil)
+    static let onBoarding = UIStoryboard(name: "OnBoarding", bundle: nil)
 }

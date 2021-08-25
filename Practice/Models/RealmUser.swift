@@ -8,12 +8,14 @@
 import Foundation
 import RealmSwift
 
-class RealmUser: RealmObjectWithId {
+class RealmUser: Object {
     // MARK: Properties
 
     @objc dynamic var id: String = ""
     @objc dynamic var username: String = ""
     @objc dynamic var email: String = ""
+
+    override class func primaryKey() -> String? { "id" }
 
     convenience init(user: User) {
         self.init()

@@ -23,15 +23,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         navigationController?.navigationBar.compactAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
 
-        navigationController?.setNavigationBarHidden(!defaultsHelper.isLoginSeen, animated: false)
+        navigationController?.setNavigationBarHidden(!defaultsHelper.isLoggedIn, animated: false)
 
         var initialViewController: UIViewController
-        if defaultsHelper.isLoginSeen {
+        if defaultsHelper.isLoggedIn {
             initialViewController = UIStoryboard.main.instantiateViewController(identifier: "MainScreenViewController")
         } else if defaultsHelper.isOnboardingSeen {
             initialViewController = UIStoryboard.main.instantiateViewController(identifier: "LogInViewController")
         } else {
-            initialViewController = UIStoryboard.main.instantiateViewController(identifier: "OnboardingViewController")
+            initialViewController = UIStoryboard.onBoarding.instantiateViewController(identifier: "OnboardingViewController")
         }
         navigationController?.setViewControllers([initialViewController], animated: false)
     }
